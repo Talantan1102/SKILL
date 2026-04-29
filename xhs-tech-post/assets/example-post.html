@@ -1,0 +1,233 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+<meta charset="UTF-8">
+<title>xhs-tech-post · 模板示例 v1</title>
+<style>
+  body {
+    margin: 0;
+    padding: 32px;
+    background: #F2EEE5;
+    font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", "PingFang SC", "Hiragino Sans GB", "Microsoft YaHei", sans-serif;
+    color: #1F1B16;
+  }
+  .header {
+    max-width: 760px;
+    margin: 0 auto 32px;
+  }
+  .header h1 {
+    font-size: 22px;
+    font-weight: 700;
+    margin: 0 0 8px;
+  }
+  .header p {
+    font-size: 13px;
+    color: #5A5246;
+    margin: 0;
+    line-height: 1.6;
+  }
+  .grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(290px, 360px));
+    gap: 24px;
+    max-width: 1200px;
+    margin: 0 auto;
+    justify-content: center;
+  }
+  .card-wrapper {
+    display: flex;
+    flex-direction: column;
+  }
+  .card-label {
+    text-align: center;
+    font-size: 11px;
+    color: #8C7E68;
+    margin-top: 10px;
+    font-style: italic;
+    font-family: "Iowan Old Style", "Palatino", serif;
+  }
+  .post-body {
+    max-width: 760px;
+    margin: 48px auto 0;
+    background: #FFFFFF;
+    padding: 24px 28px;
+    border-radius: 8px;
+    border: 1px solid #E8E2D6;
+  }
+  .post-body h2 {
+    font-size: 12px;
+    font-weight: 700;
+    margin: 0 0 12px;
+    color: #5A5246;
+    letter-spacing: 0.05em;
+    font-family: "Iowan Old Style", "Palatino", serif;
+    font-style: italic;
+  }
+  .post-body p {
+    font-size: 14px;
+    line-height: 1.7;
+    margin: 0 0 12px;
+    color: #1F1B16;
+  }
+  .post-body .tags {
+    color: #B23A26;
+    font-size: 13px;
+    line-height: 1.7;
+  }
+</style>
+</head>
+<body>
+
+<div class="header">
+  <h1>xhs-tech-post · 模板示例 v1</h1>
+  <p>这份示例展示 v1 已锁定的 3 个核心卡类型：cover、concept、architecture。素材是假想的"金融研投 Agent · 工具编排重构"贴。</p>
+  <p style="margin-top: 12px;">截图导出建议：浏览器中右键检查每张卡，对单张元素截图（推荐 GoFullPage 或 Awesome Screenshot 按选择器导出）。每张卡 <code>aspect-ratio: 3/4</code>，导出尺寸建议至少 1242×1656px 以满足小红书图片清晰度要求。</p>
+</div>
+
+<div class="grid">
+
+  <div class="card-wrapper">
+    <div style="position: relative; aspect-ratio: 3/4; background: #FFFFFF; padding: 24px 22px 18px 22px; display: flex; flex-direction: column; justify-content: space-between; border: 1px solid #E8E2D6; border-radius: 8px; color: #1F1B16; box-sizing: border-box; overflow: hidden;">
+      <div style="position: absolute; top: 8px; right: 14px; font-size: 70px; font-weight: 700; color: transparent; -webkit-text-stroke: 1px #B23A26; line-height: 1; letter-spacing: -0.05em; opacity: 0.4; font-family: 'Iowan Old Style', 'Palatino', serif;">01</div>
+      <div style="position: absolute; bottom: 0; left: 0; width: 0; height: 0; border-style: solid; border-width: 0 0 36px 36px; border-color: transparent transparent #B23A26 transparent;"></div>
+      <div style="position: relative; z-index: 2;">
+        <div style="font-family: 'Iowan Old Style', 'Palatino', serif; font-style: italic; font-size: 11px; letter-spacing: 0.05em; color: #8C7E68;">agent harness · note 02</div>
+        <div style="width: 32px; height: 1.5px; background: #B23A26; margin-top: 6px;"></div>
+      </div>
+      <div>
+        <div style="font-size: 88px; font-weight: 700; line-height: 0.92; letter-spacing: -0.03em;">43 <span style="color: #B23A26;">→</span> 7</div>
+        <div style="font-size: 14px; color: #5A5246; margin-top: 18px; line-height: 1.55; max-width: 260px;">把工具全量暴露重构成 Skill 渐进披露<br/>Prompt Token 直降 60%+</div>
+      </div>
+      <div style="display: flex; align-items: center; justify-content: space-between; gap: 8px; font-size: 11px; color: #8C7E68; padding-top: 10px; border-top: 0.5px solid #1F1B1622;">
+        <div style="display: flex; align-items: center; gap: 8px;">
+          <span style="width: 6px; height: 6px; background: #B23A26; border-radius: 50%;"></span>
+          <span>Lei Tan · Agent 工程</span>
+        </div>
+        <span>读完约 6 分钟</span>
+      </div>
+    </div>
+    <div class="card-label">01 · cover · V1 Number Hero (v2 spec)</div>
+  </div>
+
+  <div class="card-wrapper">
+    <div style="position: relative; aspect-ratio: 3/4; background: #FFFFFF; padding: 22px 22px 18px 22px; display: flex; flex-direction: column; border: 1px solid #E8E2D6; border-radius: 8px; color: #1F1B16; box-sizing: border-box; overflow: hidden;">
+      <div style="position: absolute; top: 8px; right: 14px; font-size: 70px; font-weight: 700; color: transparent; -webkit-text-stroke: 1px #B23A26; line-height: 1; letter-spacing: -0.05em; opacity: 0.4; font-family: 'Iowan Old Style', 'Palatino', serif;">02</div>
+      <div style="position: relative; z-index: 2;">
+        <div style="font-family: 'Iowan Old Style', 'Palatino', serif; font-style: italic; font-size: 11px; letter-spacing: 0.05em; color: #8C7E68;">agent harness · note 02</div>
+        <div style="width: 32px; height: 1.5px; background: #B23A26; margin-top: 6px;"></div>
+      </div>
+      <div style="margin-top: 12px;">
+        <div style="font-size: 21px; font-weight: 700; line-height: 1.2; letter-spacing: -0.01em;"><span style="color: #B23A26; position: relative; display: inline-block;">Skill<svg width="50" height="8" viewBox="0 0 50 8" style="position: absolute; bottom: -4px; left: 0;"><path d="M 1 5 Q 8 1 16 5 T 32 5 T 49 5" fill="none" stroke="#B23A26" stroke-width="1.6" stroke-linecap="round"/></svg></span> 渐进式披露<svg width="14" height="14" viewBox="0 0 14 14" style="display: inline-block; margin-left: 4px;"><path d="M 7 1 L 8 6 L 13 6 L 9 9 L 11 13 L 7 10 L 3 13 L 5 9 L 1 6 L 6 6 Z" fill="#D4A017" stroke="#D4A017" stroke-width="0.5"/></svg></div>
+        <div style="font-size: 12px; color: #B23A26; font-weight: 500; margin-top: 8px; line-height: 1.5;">把 Tool 选择拆成两阶段，砍掉 prompt 60%+</div>
+      </div>
+      <div style="margin-top: 10px; background: #FAF5E8; padding: 8px 11px; transform: rotate(-0.7deg); border-radius: 4px;">
+        <div style="font-family: 'Iowan Old Style', 'Palatino', serif; font-style: italic; font-size: 10px; color: #8C7E68; letter-spacing: 0.05em; margin-bottom: 3px;">~ 现状</div>
+        <div style="font-size: 11px; line-height: 1.55; color: #1F1B16;">原版 prompt 把 43 个 tool 描述全量塞进去 · 25K context · LLM 多轮挑错率高 · 上线 2 周复现 30%+ badcase</div>
+      </div>
+      <div style="margin-top: 10px;">
+        <svg width="100%" viewBox="0 0 280 70" style="display: block;">
+          <defs>
+            <pattern id="dotPatExample" x="0" y="0" width="9" height="9" patternUnits="userSpaceOnUse">
+              <circle cx="4.5" cy="4.5" r="1.4" fill="#1F1B16" opacity="0.55"/>
+            </pattern>
+          </defs>
+          <rect x="20" y="8" width="60" height="50" rx="2" fill="url(#dotPatExample)" stroke="#1F1B16" stroke-width="0.5"/>
+          <text x="50" y="68" font-size="9" text-anchor="middle" fill="#5A5246" font-family="serif" font-style="italic">all-43 dump · 25K</text>
+          <line x1="92" y1="32" x2="148" y2="32" stroke="#B23A26" stroke-width="0.8"/>
+          <polygon points="151,32 145,29 145,35" fill="#B23A26"/>
+          <text x="120" y="26" font-size="9" text-anchor="middle" fill="#B23A26" font-family="serif" font-style="italic">refactor</text>
+          <rect x="170" y="6" width="80" height="22" rx="2" fill="none" stroke="#1F1B16" stroke-width="0.5"/>
+          <text x="210" y="20" font-size="10" text-anchor="middle" fill="#1F1B16" font-style="italic">7 skills</text>
+          <line x1="210" y1="28" x2="210" y2="38" stroke="#B23A26" stroke-width="0.8"/>
+          <polygon points="210,41 207,36 213,36" fill="#B23A26"/>
+          <rect x="170" y="41" width="80" height="22" rx="2" fill="none" stroke="#1F1B16" stroke-width="0.5"/>
+          <text x="210" y="55" font-size="10" text-anchor="middle" fill="#1F1B16" font-style="italic">5-8 tools</text>
+          <text x="210" y="68" font-size="9" text-anchor="middle" fill="#5A5246" font-family="serif" font-style="italic">2-stage · 10K</text>
+        </svg>
+      </div>
+      <div style="margin-top: 6px;">
+        <div style="font-family: 'Iowan Old Style', 'Palatino', serif; font-style: italic; font-size: 10px; color: #B23A26; letter-spacing: 0.05em; margin-bottom: 5px; display: flex; align-items: center; gap: 4px;">
+          <svg width="9" height="9" viewBox="0 0 9 9"><path d="M 4.5 0.5 L 5.4 3.6 L 8.5 3.6 L 6 5.5 L 7 8.5 L 4.5 6.6 L 2 8.5 L 3 5.5 L 0.5 3.6 L 3.6 3.6 Z" fill="#D4A017"/></svg>
+          <span>3 个量化收益</span>
+        </div>
+        <ul style="list-style: none; padding: 0; margin: 0; font-size: 10.5px; line-height: 1.6; color: #1F1B16;">
+          <li style="padding-left: 14px; position: relative; margin-bottom: 2px;"><svg width="9" height="9" viewBox="0 0 9 9" style="position: absolute; left: 0; top: 4px;"><circle cx="4.5" cy="4.5" r="2.5" fill="#B23A26"/></svg>Prompt Token <b style="font-weight: 700;">25K → 10K</b>（−60%）</li>
+          <li style="padding-left: 14px; position: relative; margin-bottom: 2px;"><svg width="9" height="9" viewBox="0 0 9 9" style="position: absolute; left: 0; top: 4px;"><circle cx="4.5" cy="4.5" r="2.5" fill="#B23A26"/></svg>选择准确率 <b style="font-weight: 700;">+30%</b>（A/B 测）</li>
+          <li style="padding-left: 14px; position: relative;"><svg width="9" height="9" viewBox="0 0 9 9" style="position: absolute; left: 0; top: 4px;"><circle cx="4.5" cy="4.5" r="2.5" fill="#B23A26"/></svg>Badcase 率 <b style="font-weight: 700;">30% → 8%</b></li>
+        </ul>
+      </div>
+      <div style="margin-top: auto; display: flex; align-items: center; gap: 6px; padding-top: 8px;">
+        <svg width="11" height="11" viewBox="0 0 11 11" style="flex-shrink: 0;"><polygon points="5.5,1.2 9.8,9.8 1.2,9.8" fill="none" stroke="#B23A26" stroke-width="0.9"/><line x1="5.5" y1="4.5" x2="5.5" y2="7.2" stroke="#B23A26" stroke-width="0.9" stroke-linecap="round"/><circle cx="5.5" cy="8.5" r="0.55" fill="#B23A26"/></svg>
+        <span style="font-size: 11px; color: #5A5246; font-family: 'Iowan Old Style', 'Palatino', serif; font-style: italic;">代价 · routing 多 1-2 turn 延迟</span>
+      </div>
+    </div>
+    <div class="card-label">concept · 含 schematic + 量化结果 + 代价 · v1</div>
+  </div>
+
+  <div class="card-wrapper">
+    <div style="position: relative; aspect-ratio: 3/4; background: #FFFFFF; padding: 22px 22px 18px 22px; display: flex; flex-direction: column; border: 1px solid #E8E2D6; border-radius: 8px; color: #1F1B16; box-sizing: border-box; overflow: hidden;">
+      <div style="position: absolute; top: 8px; right: 14px; font-size: 70px; font-weight: 700; color: transparent; -webkit-text-stroke: 1px #B23A26; line-height: 1; letter-spacing: -0.05em; opacity: 0.4; font-family: 'Iowan Old Style', 'Palatino', serif;">03</div>
+      <div style="position: relative; z-index: 2;">
+        <div style="font-family: 'Iowan Old Style', 'Palatino', serif; font-style: italic; font-size: 11px; letter-spacing: 0.05em; color: #8C7E68;">agent harness · note 02</div>
+        <div style="width: 32px; height: 1.5px; background: #B23A26; margin-top: 6px;"></div>
+      </div>
+      <div style="margin-top: 12px; position: relative;">
+        <div style="font-size: 22px; font-weight: 700; line-height: 1.2; letter-spacing: -0.01em;">7 个 <span style="color: #B23A26; position: relative;">Skill<svg width="48" height="22" viewBox="0 0 48 22" style="position: absolute; top: -3px; left: -3px; z-index: -1;"><path d="M 5 11 Q 2 4 24 3 Q 45 4 44 11 Q 43 19 24 19 Q 4 19 5 11 Z" fill="none" stroke="#D4A017" stroke-width="1.4" stroke-linecap="round"/></svg></span> 一级目录</div>
+        <div style="font-size: 12px; color: #B23A26; font-weight: 500; margin-top: 5px; line-height: 1.5;">按金融研投意图域分桶 · 每个 5-8 tool</div>
+      </div>
+      <div style="margin-top: 8px; font-size: 11px; line-height: 1.5; color: #1F1B16;">LLM 先在 7 个 skill 描述里路由到 1 个，再在该 skill 下的 tool 子集里选具体的</div>
+      <div style="display: grid; grid-template-columns: 1fr 1fr; gap: 6px; margin-top: 10px;">
+        <div style="display: flex; gap: 8px; padding: 7px 9px; border: 0.8px dashed #B23A26; border-radius: 4px; background: #FAF5E8;">
+          <svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="#B23A26" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" style="flex-shrink: 0; margin-top: 1px;"><path d="M3 3v18h18"/><path d="M7 16V8"/><path d="M11 16V11"/><path d="M15 16V6"/></svg>
+          <div style="flex: 1; min-width: 0;"><div style="font-size: 10.5px; font-weight: 700;">行情数据</div><div style="font-size: 9.5px; color: #5A5246; line-height: 1.35;">价格/成交/持仓</div></div>
+        </div>
+        <div style="display: flex; gap: 8px; padding: 7px 9px; border: 0.8px dashed #B23A26; border-radius: 4px; background: #FAF5E8;">
+          <svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="#B23A26" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" style="flex-shrink: 0; margin-top: 1px;"><circle cx="11" cy="11" r="8"/><path d="m21 21-4.3-4.3"/></svg>
+          <div style="flex: 1; min-width: 0;"><div style="font-size: 10.5px; font-weight: 700;">研报检索</div><div style="font-size: 9.5px; color: #5A5246; line-height: 1.35;">文本检索+回链</div></div>
+        </div>
+        <div style="display: flex; gap: 8px; padding: 7px 9px; border: 0.8px dashed #B23A26; border-radius: 4px; background: #FAF5E8;">
+          <svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="#B23A26" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" style="flex-shrink: 0; margin-top: 1px;"><polyline points="16 18 22 12 16 6"/><polyline points="8 6 2 12 8 18"/></svg>
+          <div style="flex: 1; min-width: 0;"><div style="font-size: 10.5px; font-weight: 700;">代码执行</div><div style="font-size: 9.5px; color: #5A5246; line-height: 1.35;">沙箱 Python/SQL</div></div>
+        </div>
+        <div style="display: flex; gap: 8px; padding: 7px 9px; border: 0.8px dashed #B23A26; border-radius: 4px; background: #FAF5E8;">
+          <svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="#B23A26" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" style="flex-shrink: 0; margin-top: 1px;"><path d="M21 21H7a2 2 0 0 1-2-2V5"/><path d="m7 14 4-4 4 4 5-5"/></svg>
+          <div style="flex: 1; min-width: 0;"><div style="font-size: 10.5px; font-weight: 700;">可视化</div><div style="font-size: 9.5px; color: #5A5246; line-height: 1.35;">图表 + 解读</div></div>
+        </div>
+        <div style="display: flex; gap: 8px; padding: 7px 9px; border: 0.8px dashed #B23A26; border-radius: 4px; background: #FAF5E8;">
+          <svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="#B23A26" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" style="flex-shrink: 0; margin-top: 1px;"><path d="M14 3v4a1 1 0 0 0 1 1h4"/><path d="M17 21H7a2 2 0 0 1-2-2V5a2 2 0 0 1 2-2h7l5 5v11a2 2 0 0 1-2 2z"/></svg>
+          <div style="flex: 1; min-width: 0;"><div style="font-size: 10.5px; font-weight: 700;">报告生成</div><div style="font-size: 9.5px; color: #5A5246; line-height: 1.35;">长文 + 引用</div></div>
+        </div>
+        <div style="display: flex; gap: 8px; padding: 7px 9px; border: 0.8px dashed #B23A26; border-radius: 4px; background: #FAF5E8;">
+          <svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="#B23A26" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" style="flex-shrink: 0; margin-top: 1px;"><path d="M20 13c0 5-3.5 7.5-7.66 8.95a1 1 0 0 1-.67-.01C7.5 20.5 4 18 4 13V6a1 1 0 0 1 1-1c2 0 4.5-1.2 6.24-2.72a1.17 1.17 0 0 1 1.52 0C14.51 3.81 17 5 19 5a1 1 0 0 1 1 1z"/></svg>
+          <div style="flex: 1; min-width: 0;"><div style="font-size: 10.5px; font-weight: 700;">合规审查</div><div style="font-size: 9.5px; color: #5A5246; line-height: 1.35;">敏感词+出域</div></div>
+        </div>
+      </div>
+      <div style="margin-top: 8px; font-family: 'Iowan Old Style', 'Palatino', serif; font-style: italic; font-size: 10px; color: #8C7E68; line-height: 1.5;">
+        <span style="color: #B23A26; letter-spacing: 0.05em;">~ 数据流</span>&nbsp; LLM 先看 6 个 skill 描述路由 → 落到对应 skill 的 tool 子集 → 工具执行 → 结果回 LLM
+      </div>
+      <div style="margin-top: 8px; padding: 7px 11px 7px 12px; background: rgba(212,160,23,0.13); border: 1px solid #D4A017; border-radius: 4px; transform: rotate(-0.6deg); position: relative;">
+        <svg width="13" height="13" viewBox="0 0 14 14" style="position: absolute; top: -6px; left: -5px;"><path d="M 7 1 L 8 5.5 L 12.5 5.5 L 9 8 L 10 12.5 L 7 10 L 4 12.5 L 5 8 L 1.5 5.5 L 6 5.5 Z" fill="#D4A017" stroke="#D4A017" stroke-width="0.5"/></svg>
+        <span style="font-family: 'Iowan Old Style', 'Palatino', serif; font-style: italic; font-size: 10px; color: #8B6809; letter-spacing: 0.05em; font-weight: 700;">关键</span>
+        <span style="font-size: 11px; color: #1F1B16; font-weight: 500; margin-left: 6px;">分桶逻辑直接决定召回准确率</span>
+      </div>
+      <div style="margin-top: auto; display: flex; align-items: center; gap: 6px; padding-top: 8px;">
+        <svg width="11" height="11" viewBox="0 0 11 11" style="flex-shrink: 0;"><polygon points="5.5,1.2 9.8,9.8 1.2,9.8" fill="none" stroke="#B23A26" stroke-width="0.9"/><line x1="5.5" y1="4.5" x2="5.5" y2="7.2" stroke="#B23A26" stroke-width="0.9" stroke-linecap="round"/><circle cx="5.5" cy="8.5" r="0.55" fill="#B23A26"/></svg>
+        <span style="font-size: 11px; color: #5A5246; font-family: 'Iowan Old Style', 'Palatino', serif; font-style: italic;">代价 · skill 边界划错就要重路由</span>
+      </div>
+    </div>
+    <div class="card-label">architecture · 6 模块 2×3 + 数据流 · v1</div>
+  </div>
+
+</div>
+
+<div class="post-body">
+  <h2>post body (正文)</h2>
+  <p>把 43 个 tool 全量塞进 prompt 是项目第一个版本的做法，跑两轮 LLM 就能选错；后面拆成 7 个 skill 做一级目录、再下沉到 tool，prompt 砍了 60%、选择准确率回到能用的水平。</p>
+  <p>这套结构在 30B MoE 上稳了，70B dense 还在压 latency。skill 的边界划分本身是个工程活，划错一次返工很疼。</p>
+  <p style="margin-bottom: 0;">做过类似 multi-agent harness 的同行欢迎评论区交流。</p>
+  <h2 style="margin-top: 20px;">hashtags</h2>
+  <p class="tags" style="margin-bottom: 0;">#MultiAgent #ToolUse #LangGraph #LLM应用 #AI工程师</p>
+</div>
+
+</body>
+</html>
