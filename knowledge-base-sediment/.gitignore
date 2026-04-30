@@ -1,0 +1,16 @@
+# Python
+__pycache__/
+*.pyc
+*.pyo
+.pytest_cache/
+
+# venv
+.venv/
+venv/
+
+# editor
+.idea/
+.vscode/
+
+# project-specific one-offs
+scripts/_gen_*.py
