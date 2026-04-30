@@ -6,11 +6,13 @@
 
 | 指标 | 计算方式 | PASS 阈值 |
 |---|---|---|
-| `char_count` | 卡片正文的中文字符等价数,不计 kicker、页码、标题、gist 和 trade-off 行 | 220 ≤ x ≤ 300 |
+| `char_count` | 卡片正文的中文字符等价数,不计 kicker、页码、标题、gist 和 trade-off 行 | 200 ≤ x ≤ 260(硬上限 280,超过则拆成两张卡) |
 | `specifics` | 计数:数字、命名的工具/库/文件/API/配置开关、括号里的具体场景、前后对比或 vs 比较 | ≥ 6 |
 | `hand_drawn_elements` | 卡片中使用的、来自 `visual-system.md` 词汇表的不同元素的数量 | 3 ≤ x ≤ 5 |
 | `trade_off_present` | 布尔值 —— 卡片是否带有一行 trade-off | 满足以下任一即 PASS:(a) 有 trade-off 行,或 (b) 卡片类型是 `summary`,或 (c) 模型显式输出 `trade_off_skipped_reason`(≤ 16 字,例如 "纯解释卡"、"无实际代价") |
 | `bullet_specifics_floor` | 每个 bullet 至少 1 个 specific;概念卡的 bullet 至少 2 个 specifics | 所有 bullet 均满足 |
+| `bullet_wrap_visual` | 心算法:11px 字号、360px 卡片、约 316px 内容宽度。纯中文 bullet 60 字左右换行 2 行;90+ 字会换行 3+ 行 | 每个 bullet ≤ 2 视觉行。3 行 bullet 必须拆或裁 |
+| `watermark_present` | 卡片有 `<svg>` 水印层(对应 `visual-system.md` 的"水印层"):pattern id `wm-NN`、opacity 0.05–0.06、文本与帖子选定的作者 handle 匹配 | 三项全 true 才 PASS。缺失水印 → 重新生成卡片 |
 
 只有当每一项指标都 PASS,该卡片才算 PASS。
 
@@ -26,6 +28,8 @@
 | `failure_mode_clear` | 不命中 `hook-patterns.md` "Cover failure modes" 中的任何一种模式 | 不出现:Notion 截图风 / 锚点被埋 / 副标题剧透 / 装饰当锚点 |
 | `supporting_count` | 辅助装饰元素计数(kicker/分割线/阅读时长/色条/VOL/角标数字) | 强制 2 个(kicker+分割线、阅读时长)+ 0–2 个可选。总数 ≤ 5。 |
 | `subtitle_role` | 副标题给出的是结构性背景而不是答案 | 副标题是 workload/版本号/规模/系列号 —— 不能概括帖子的主论点 |
+| `wordmark_fit`(仅 V2) | 每行 wordmark 估算渲染宽度 = `字符数 × 字号 × 0.55` | ≤ 316 px(= 360 卡宽 − 2×22 padding)。失败 → 按 `card-templates.md` "Wordmark length cap" 调字号(如 84 → 64)或缩写。**常见踩坑**:`DeepSeek`(8 字)在 84px 下 = 370px,会溢出。 |
+| `watermark_present` | 封面有 `visual-system.md` 中定义的 SVG 水印层,V2 用深色变体(米色文本、opacity 0.06),V1/V3 用浅色变体(深色文本、opacity 0.05) | 存在 + 表面变体匹配,才 PASS |
 
 只有当每一项指标都 PASS,该封面才算 PASS。如果 `archetype` 与 `chosen_hook` 在 hook-patterns 选择表中不匹配,作为一致性 ✗ 上抛 —— 提议要么换 hook、要么换 archetype,等待用户确认。
 

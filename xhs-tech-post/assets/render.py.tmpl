@@ -1,0 +1,259 @@
+"""
+render.py —— xhs-tech-post HTML 卡片组的端到端构建脚本。
+
+一条命令做的事:
+  1. 如果存在同级目录 `<stem>-diagrams/` 且里面有 `.excalidraw` 文件,
+     就用 headless 浏览器加载 excalidraw 渲染器,把每张图渲染成同名
+     `.svg` 落到该目录,然后在帖子 HTML 中按标记块
+     `<!-- excalidraw:<key> begin --> ... <!-- excalidraw:<key> end -->`
+     做 inline 替换。结果写入 `<stem>-rendered.html`。标记键 = `.excalidraw`
+     文件名 stem 的前两个破折号段(`card-02-anything.excalidraw` → `card-02`)。
+  2. 打开渲染后的 HTML(没有则用原始 HTML),把每个 `.card-wrap > div`
+     截图成 PNG,尺寸约 1260×1680 px(过小红书 1242×1656 质量门槛),
+     输出到 `<stem>-cards/`。卡片标记里烤进的水印层会出现在每张 PNG 上。
+
+首次安装:
+    py -m pip install playwright
+    py -m playwright install chromium
+
+如果 pip / playwright 网络不通,用全局 CLAUDE.md 中配的代理:
+    set HTTPS_PROXY=http://127.0.0.1:7897 && py -m pip install playwright
+    set HTTPS_PROXY=http://127.0.0.1:7897 && py -m playwright install chromium
+
+运行:
+    py render.py xhs-post-<slug>.html
+
+说明:
+  - excalidraw 渲染器从 CDN(unpkg)加载。如果网络被墙,转换会跳过并打印
+    warning,降级为用原始 HTML(里面携带的 fallback 内嵌 SVG)截图。
+  - SVG 也会落到 `<stem>-diagrams/*.svg` 便于检查 / 手动粘贴(若你不想再
+    跑一遍构建)。
+"""
+from __future__ import annotations
+
+import re
+import sys
+from pathlib import Path
+
+if sys.stdout.encoding and sys.stdout.encoding.lower() != "utf-8":
+    try:
+        sys.stdout.reconfigure(encoding="utf-8")
+    except Exception:
+        pass
+
+
+# Headless 渲染器页面。从 unpkg 加载 React + @excalidraw/excalidraw 的 UMD
+# bundle,然后暴露 window.__renderToSvg(payloadJson) -> svgString。
+RENDERER_HTML = r"""<!DOCTYPE html>
+<html>
+<head>
+<meta charset="utf-8">
+<title>excalidraw headless renderer</title>
+<script crossorigin src="https://unpkg.com/react@18.2.0/umd/react.production.min.js"></script>
+<script crossorigin src="https://unpkg.com/react-dom@18.2.0/umd/react-dom.production.min.js"></script>
+<script crossorigin src="https://unpkg.com/@excalidraw/excalidraw@0.18.0/dist/excalidraw.production.min.js"></script>
+</head>
+<body>
+<div id="root"></div>
+<script>
+window.__rendererReady = false;
+window.__rendererError = null;
+
+(function waitForLib() {
+  if (typeof ExcalidrawLib !== "undefined" && typeof ExcalidrawLib.exportToSvg === "function") {
+    window.__rendererReady = true;
+  } else if (window.__rendererTimeout && Date.now() > window.__rendererTimeout) {
+    window.__rendererError = "ExcalidrawLib failed to load (likely CDN unreachable)";
+  } else {
+    if (!window.__rendererTimeout) window.__rendererTimeout = Date.now() + 30000;
+    setTimeout(waitForLib, 100);
+  }
+})();
+
+window.__renderToSvg = async function(payload) {
+  if (!window.__rendererReady) throw new Error("renderer not ready");
+  const data = JSON.parse(payload);
+  const svg = await ExcalidrawLib.exportToSvg({
+    elements: data.elements || [],
+    appState: Object.assign({}, data.appState || {}, {
+      exportBackground: false,
+      exportPadding: 8,
+      viewBackgroundColor: "#ffffff",
+    }),
+    files: data.files || {},
+  });
+  svg.setAttribute("width", "100%");
+  svg.removeAttribute("height");
+  svg.style.display = "block";
+  return svg.outerHTML;
+};
+</script>
+</body>
+</html>
+"""
+
+
+def detect_marker_key(filename: str) -> str:
+    """card-02-v32-bottleneck.excalidraw  ->  card-02"""
+    stem = Path(filename).stem
+    parts = stem.split("-")
+    return "-".join(parts[:2]) if len(parts) >= 2 else stem
+
+
+def preprocess_excalidraw(html_path: Path, ctx) -> Path:
+    """如果同级目录 `<stem>-diagrams/` 存在 .excalidraw 文件,就把每张渲染成
+    SVG 并按标记块 inline 替换到 HTML。返回(可能是新的)用于截图的 HTML
+    路径。"""
+    diagrams_dir = html_path.with_name(html_path.stem + "-diagrams")
+    if not diagrams_dir.exists() or not diagrams_dir.is_dir():
+        return html_path
+
+    excalidraw_files = sorted(diagrams_dir.glob("*.excalidraw"))
+    if not excalidraw_files:
+        return html_path
+
+    print(f"[render] {len(excalidraw_files)} excalidraw file(s) in {diagrams_dir.name}/")
+
+    renderer_path = diagrams_dir / "_excalidraw_renderer.html"
+    renderer_path.write_text(RENDERER_HTML, encoding="utf-8")
+
+    svgs_by_key: dict[str, str] = {}
+    page = ctx.new_page()
+    try:
+        page.goto(renderer_path.as_uri())
+        try:
+            page.wait_for_function("window.__rendererReady === true", timeout=45000)
+        except Exception:
+            err = page.evaluate("window.__rendererError || 'timed out'")
+            print(
+                f"  warning: excalidraw library didn't load ({err}). "
+                f"Falling back to existing inline SVG in {html_path.name}.",
+                file=sys.stderr,
+            )
+            return html_path
+
+        for f in excalidraw_files:
+            json_text = f.read_text(encoding="utf-8")
+            try:
+                svg_text = page.evaluate(
+                    "(payload) => window.__renderToSvg(payload)", json_text
+                )
+            except Exception as e:
+                print(f"  error rendering {f.name}: {e}", file=sys.stderr)
+                continue
+            key = detect_marker_key(f.name)
+            svgs_by_key[key] = svg_text
+            svg_path = f.with_suffix(".svg")
+            svg_path.write_text(svg_text, encoding="utf-8")
+            print(f"  {f.name}  →  {svg_path.name}  (marker: {key})")
+    finally:
+        page.close()
+        try:
+            renderer_path.unlink()
+        except OSError:
+            pass
+
+    if not svgs_by_key:
+        print("  no SVGs produced; using original HTML")
+        return html_path
+
+    html = html_path.read_text(encoding="utf-8")
+    inlined = 0
+    for key, svg in svgs_by_key.items():
+        pattern = re.compile(
+            rf"(<!--\s*excalidraw:{re.escape(key)}\s+begin\s*-->)"
+            rf".*?"
+            rf"(<!--\s*excalidraw:{re.escape(key)}\s+end\s*-->)",
+            re.DOTALL,
+        )
+
+        def _sub(m, _svg=svg):
+            return m.group(1) + "\n" + _svg + "\n" + m.group(2)
+
+        new_html, n = pattern.subn(_sub, html)
+        if n == 0:
+            print(
+                f"  warning: marker `excalidraw:{key}` not found in {html_path.name}; "
+                f"the SVG has been written to disk but not inlined.",
+                file=sys.stderr,
+            )
+        else:
+            html = new_html
+            inlined += n
+
+    if inlined == 0:
+        print("  no markers matched; using original HTML")
+        return html_path
+
+    rendered_path = html_path.with_name(html_path.stem + "-rendered.html")
+    rendered_path.write_text(html, encoding="utf-8")
+    print(f"  → {rendered_path.name}  ({inlined} schematic(s) inlined)")
+    return rendered_path
+
+
+def main() -> int:
+    if len(sys.argv) < 2:
+        print("usage: py render.py xhs-post-<slug>.html", file=sys.stderr)
+        return 2
+
+    in_path = Path(sys.argv[1]).resolve()
+    if not in_path.exists():
+        print(f"error: {in_path} not found", file=sys.stderr)
+        return 1
+
+    out_dir = in_path.with_name(in_path.stem + "-cards")
+    out_dir.mkdir(exist_ok=True)
+
+    try:
+        from playwright.sync_api import sync_playwright
+    except ImportError:
+        print(
+            "error: playwright not installed.\n"
+            "       py -m pip install playwright && py -m playwright install chromium",
+            file=sys.stderr,
+        )
+        return 1
+
+    DEVICE_SCALE_FACTOR = 3.5  # 360px 卡 × 3.5 = 1260px
+
+    with sync_playwright() as p:
+        browser = p.chromium.launch()
+
+        # 渲染上下文 —— 默认 DSF,只用来转 excalidraw → SVG
+        render_ctx = browser.new_context(viewport={"width": 1280, "height": 900})
+        html_for_capture = preprocess_excalidraw(in_path, render_ctx)
+        render_ctx.close()
+
+        # 截图上下文 —— 高 DSF,保证截图清晰度
+        capture_ctx = browser.new_context(
+            viewport={"width": 1500, "height": 900},
+            device_scale_factor=DEVICE_SCALE_FACTOR,
+        )
+        page = capture_ctx.new_page()
+        page.goto(html_for_capture.as_uri())
+        page.wait_for_load_state("networkidle")
+
+        cards = page.query_selector_all(".card-wrap > div")
+        if not cards:
+            print(
+                "error: no `.card-wrap > div` elements found in the HTML.\n"
+                "       expected the xhs-tech-post deck layout.",
+                file=sys.stderr,
+            )
+            browser.close()
+            return 1
+
+        print(f"[render] capturing {len(cards)} card(s) from {html_for_capture.name}")
+        for i, card in enumerate(cards, start=1):
+            card.scroll_into_view_if_needed()
+            out = out_dir / f"card-{i:02d}.png"
+            card.screenshot(path=str(out))
+            print(f"  card-{i:02d}.png  →  {out}")
+        browser.close()
+
+    print(f"[render] done. {len(cards)} PNG(s) in {out_dir}")
+    return 0
+
+
+if __name__ == "__main__":
+    raise SystemExit(main())
