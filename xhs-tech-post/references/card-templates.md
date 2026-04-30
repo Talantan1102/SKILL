@@ -1,35 +1,35 @@
-# Card Templates (v1)
+# 卡片模板 (v1)
 
-Seven card types, all locked. Templates assume the v1 visual system (white BG, 1px border, no footer, hand-drawn elements, amber as secondary accent).
+七种卡片类型,全部锁定。模板基于 v1 视觉系统(白色背景、1px 边框、无页脚、手绘元素、琥珀色作次级强调色)。
 
-## Card type taxonomy
+## 卡片类型分类(taxonomy)
 
-| Type | Used for | Frequency in a typical post |
+| 类型 | 用途 | 在一篇典型帖子中的出现频率 |
 |---|---|---|
-| **Cover** | First card, hook | 1× per post (always) |
-| **Concept** | Defining a non-obvious idea, framing a problem | 0–2× |
-| **Architecture** | Structural overview (parallel facets / modules) | 0–1× |
-| **Flow** | Sequential pipeline | 0–1× |
-| **Compare** | Side-by-side or before-after structural comparison | 0–2× |
-| **Code** | Key snippet with annotations | 0–2× |
-| **Pitfall** | Counterintuitive trap or "I assumed X" moment | 1–3× (war-story posts) |
-| **Summary** | Closing card with takeaways + 适用/不适用 | 1× per post (always) |
+| **Cover (封面)** | 首卡,钩子 | 每帖 1 次(必有) |
+| **Concept (概念)** | 定义一个非显然的想法,框定一个问题 | 0–2 次 |
+| **Architecture (架构)** | 结构性总览(并列分面 / 模块) | 0–1 次 |
+| **Flow (流程)** | 顺序流水线 | 0–1 次 |
+| **Compare (对比)** | 并列或前后结构对比 | 0–2 次 |
+| **Code (代码)** | 带注释的关键片段 | 0–2 次 |
+| **Pitfall (陷阱)** | 反直觉的陷阱或"我以为 X"瞬间 | 1–3 次(战记类帖子) |
+| **Summary (收束)** | 含要点 + 适用/不适用 的收束卡 | 每帖 1 次(必有) |
 
-A typical 7-card post: cover + concept + compare + architecture + concept-or-pitfall + pitfall + summary.
+一篇典型的 7 卡帖子:封面 + 概念 + 对比 + 架构 + 概念-或-陷阱 + 陷阱 + 收束。
 
 ---
 
-## 1. Cover
+## 1. Cover(封面)
 
-The hook — and the single card that decides whether anyone in 小红书 feed reads the rest. Three locked archetypes (V1 / V2 / V3); pick one based on the chosen hook + the kind of evidence in the brief. Selection table: see `references/hook-patterns.md` "Anchor selection table".
+钩子——也是决定小红书 feed 中是否有人继续读下去的唯一一张卡。三种锁定的原型(V1 / V2 / V3);根据所选钩子 + brief 中证据的种类挑选其一。挑选表见 `references/hook-patterns.md` 的 "Anchor selection table"。
 
-**Mandatory rule:** every cover must contain one visual anchor — a big number (V1), a logo block (V2), or a mini schematic (V3). White bg + small text + corner decoration is no longer a valid cover; that's the v0 failure mode and it disappears in 200px feed thumbnails.
+**强制规则:** 每张封面必须包含一个视觉锚点——一个大数字 (V1)、一个 logo 块 (V2),或一个迷你示意图 (V3)。白底 + 小字 + 角落装饰已不再是合法封面;那是 v0 的失败模式,在 200px 缩略图下会消失。
 
-### V1 — Number Hero (light bg)
+### V1 — Number Hero(数字英雄,浅底)
 
-For Hook A (数字反差) and Hook B when the structural change has a count (e.g. `43 → 7`).
+用于钩子 A(数字反差)和钩子 B(当结构变化带计数时,例如 `43 → 7`)。
 
-**Structure:**
+**结构:**
 ```
 ┌─────────────────────────────────────┐
 │ [kicker · italic serif]    [01 #]   │  ← outlined corner number (optional)
@@ -46,7 +46,7 @@ For Hook A (数字反差) and Hook B when the structural change has a count (e.g
 └─────────────────────────────────────┘
 ```
 
-**Template:**
+**模板:**
 
 ```html
 <div style="position: relative; aspect-ratio: 3/4; background: #FFFFFF;
@@ -90,11 +90,11 @@ For Hook A (数字反差) and Hook B when the structural change has a count (e.g
 </div>
 ```
 
-### V2 — Logo Block (dark poster)
+### V2 — Logo Block(Logo 块,深色海报)
 
-For Hook B without numbers, Hook C (技术名词), Hook D (我以为). The brand / framework / model name carries the visual mass on a dark poster background. This is the strongest "thumb-stopping" archetype — it looks like an album cover at feed scale.
+用于无数字的钩子 B、钩子 C(技术名词)、钩子 D(我以为)。品牌 / 框架 / 模型名在深色海报背景上承担视觉重量。这是最强的"拇指停留"原型——在 feed 缩放下它看起来就像一张专辑封面。
 
-**Structure:**
+**结构:**
 ```
 ┌─────────────────────────────────────┐  ← dark bg #1F1B16, no border
 │ ▰                            VOL·01 │  ← stripe + small VOL marker
@@ -111,7 +111,7 @@ For Hook B without numbers, Hook C (技术名词), Hook D (我以为). The brand
 └─────────────────────────────────────┘
 ```
 
-**Template:**
+**模板:**
 
 ```html
 <div style="position: relative; aspect-ratio: 3/4; background: #1F1B16;
@@ -165,20 +165,20 @@ For Hook B without numbers, Hook C (技术名词), Hook D (我以为). The brand
 </div>
 ```
 
-**V2 rules:**
-- Wordmark splits into 2 lines: brand/framework name (cream) on line 1, version/edition (brand red) on line 2. Either line may be the brand-red one — typically the shorter, more distinctive token.
-- **Wordmark length cap:** if any wordmark line exceeds **12 visual chars** (Chinese count as 1, ASCII as 1) at 84px, the line will overflow a 360px card. Three options in order of preference: (1) abbreviate (`RadixAttention` → `RadixAttn` or `RA`); (2) drop to 64px and keep full name; (3) split across more lines. Don't shrink below 60px — that breaks the anchor rule.
-- Use 0–3 inline data tags. Tags can be (a) **hard numbers** if the post has them and the cover wants a numeric preview, (b) **structural facts** (named components, layered concepts, framework families), or (c) **metadata** (version, license, release date). Pick consistently — don't mix metadata and numbers in the same row.
-- Diagonal stripe is optional but recommended — it differentiates this from a generic "dark mode" Notion page.
-- Footer text must be `#8C7E68` (tertiary) on dark bg, NOT cream — keeps the hero readable as the primary focus.
+**V2 规则:**
+- Wordmark 拆成 2 行:品牌/框架名(cream)在第 1 行,版本/edition(品牌红)在第 2 行。任意一行都可以是品牌红的那行——通常是更短、更有辨识度的那个 token。
+- **Wordmark 长度上限:** 任意 wordmark 行在 84px 下若超过 **12 视觉字符**(中文计 1,ASCII 计 1)将会撑爆 360px 卡片。三个备选方案,按优先级排序:(1) 缩写(`RadixAttention` → `RadixAttn` 或 `RA`);(2) 降到 64px 保留全名;(3) 拆成更多行。不要降到 60px 以下——那会破坏锚点规则。
+- 使用 0–3 个内联数据 tag。Tag 可以是 (a) **硬数字**——若帖子有这些数字且封面要做数字预告,(b) **结构事实**(具名组件、分层概念、框架家族),或 (c) **元数据**(版本、license、发布日期)。一致地选——不要在同一行混用元数据和数字。
+- 对角条纹是可选的但建议保留——它把这张封面与一个普通的"暗色模式" Notion 页面区分开。
+- 在深色背景上,页脚文本必须是 `#8C7E68`(三级灰),而不是 cream——保持 hero 作为主焦点的可读性。
 
-### V3 — Schematic Peek (light bg, schematic anchored)
+### V3 — Schematic Peek(示意图窥视,浅底,以示意图为锚)
 
-For Hook C / D where there is **no well-known brand or framework name** to ride on, AND the mechanism's schematic is more memorable than any wordmark would be. Examples: a context-parallel zigzag split pattern, a 2D pipeline parallel grid, a dataflow shape like `Mamba` selective scan. The mini schematic is the anchor; the hero text shrinks to give it room.
+用于钩子 C / D 的场景:**没有广为人知的品牌或框架名**可以借势,**且**该机制的示意图比任何 wordmark 都更易被记住。例子:context-parallel 的 zigzag 切分模式、2D pipeline parallel 的网格、像 `Mamba` selective scan 这样的数据流形状。迷你示意图是锚点;hero 文字缩小给它让位。
 
-**V3 is the rare fallback, not the default for Hook C.** If the post is about a named system (RadixAttention, SGLang, vLLM, FlashAttention, etc.), V2 wins because the brand wordmark gives stronger pre-attentive recognition than a schematic at thumbnail scale. Use V3 only when (a) there is no recognizable brand to put on the cover, OR (b) the schematic itself is iconic and recognizable across the engineer audience (rare).
+**V3 是少见的兜底,而非钩子 C 的默认。** 如果帖子讲的是一个具名系统(RadixAttention、SGLang、vLLM、FlashAttention 等),V2 胜出,因为品牌 wordmark 在缩略图尺度下比示意图的图形匹配能给出更强的前注意识别。只在以下情况用 V3:(a) 没有可放在封面上的可识别品牌;或 (b) 示意图本身在工程师受众中具有标志性、可识别(很少见)。
 
-**Structure:**
+**结构:**
 ```
 ┌─────────────────────────────────────┐
 │ [kicker]              [01 #]        │
@@ -197,9 +197,9 @@ For Hook C / D where there is **no well-known brand or framework name** to ride 
 └─────────────────────────────────────┘
 ```
 
-Use the schematic primitives in `visual-system.md` "Schematic SVG visual language". Hero text is 30-36px max — the schematic carries the visual weight, not the words. Subtitle is optional in V3 (the schematic is its own subtitle).
+使用 `visual-system.md` 中"Schematic SVG visual language"的示意图原语。Hero 文字最大 30-36px——视觉重量由示意图承担,而非文字。V3 的副标题是可选的(示意图本身就是它的副标题)。
 
-**Template skeleton** (full SVG content is post-specific, see hooks-patterns + schematic primitives):
+**模板骨架**(完整 SVG 内容因帖而异,见 hooks-patterns + 示意图原语):
 
 ```html
 <div style="position: relative; aspect-ratio: 3/4; background: #FFFFFF;
@@ -228,8 +228,8 @@ Use the schematic primitives in `visual-system.md` "Schematic SVG visual languag
     <div style="margin-top: 16px; padding: 12px 14px; background: #FAF5E8;
                 border-radius: 4px; border: 0.5px solid #1F1B1622;">
       <svg viewBox="0 0 280 130" width="100%" style="display: block;">
-        <!-- schematic content: 3-5 labeled boxes, arrows, amber loop -->
-        <!-- see schematic SVG visual language in visual-system.md -->
+        <!-- 示意图内容:3-5 个带标签的方框、箭头、琥珀色环 -->
+        <!-- 见 visual-system.md 中的 schematic SVG visual language -->
       </svg>
     </div>
   </div>
@@ -246,7 +246,7 @@ Use the schematic primitives in `visual-system.md` "Schematic SVG visual languag
 </div>
 ```
 
-### Picking V1 vs V2 vs V3
+### V1 vs V2 vs V3 的选择
 
 ```
 有硬 before-after 数字 / 可做大字 hero?  ──→ V1 Number Hero
@@ -258,17 +258,17 @@ Use the schematic primitives in `visual-system.md` "Schematic SVG visual languag
                                         ──→ V3 Schematic Peek
 ```
 
-**Default to V2.** Branded topics always go V2, even when the schematic is interesting — wordmark recognition beats schematic pattern-matching at 200px thumbnail scale. V3 is only for unbranded concepts (e.g. "zigzag split", "selective scan dataflow") where there is no recognizable name to put on the cover.
+**默认走 V2。** 带品牌的题材永远走 V2,即便示意图很有意思——在 200px 缩略图尺度下,wordmark 识别压过示意图的图形匹配。V3 只用于无品牌的概念(例如 "zigzag split"、"selective scan dataflow"),这些场景没有可识别的名字可以放上封面。
 
-When in doubt between V1 and V2: if the headline number is a **single number-pair** (like `43 → 7`, `27% / 10%`), V1. If the headline is a **system/version** (like `DeepSeek V4`, `SGLang 0.5`), V2 — even if the post also has numbers (those go in tags or content cards, not the cover hero).
+V1 与 V2 之间犹豫时:如果标题数字是**单一数字对**(比如 `43 → 7`、`27% / 10%`),走 V1。如果标题是**系统/版本**(比如 `DeepSeek V4`、`SGLang 0.5`),走 V2——即便帖子里也有数字(那些数字应该出现在 tag 或内容卡里,而不是封面 hero)。
 
 ---
 
-## 2. Concept card
+## 2. Concept card(概念卡)
 
-Defines a concept. Includes a tinted "现状" sticky-note + mini-schematic + a bulleted "N 个 X" section.
+定义一个概念。包含一个着色的"现状"便签 + 迷你示意图 + 一段"N 个 X"的项目列表。
 
-### Structure
+### 结构
 
 ```
 [kicker + rule]                  [page #]
@@ -288,15 +288,15 @@ Defines a concept. Includes a tinted "现状" sticky-note + mini-schematic + a b
 △ 代价 · text
 ```
 
-### Hand-drawn elements used (4)
+### 使用的手绘元素 (4 种)
 
-1. Squiggle under the accent token in title
-2. Amber star next to the accent token
-3. Amber hand-drawn loop around key element in schematic
-4. Hand-drawn × marks as bullet markers in the "N 个 X" list
-5. Sticky-note tilt on the "现状" tinted box (counts as 5th if you want max density)
+1. 标题中强调 token 下方的波浪线
+2. 强调 token 旁边的琥珀色星星
+3. 示意图中关键元素周围的琥珀色手绘环
+4. "N 个 X" 列表中作为项目符号的手绘 × 标记
+5. "现状" 着色框上的便签倾斜(若想拉满密度,这算第 5 种)
 
-### Template
+### 模板
 
 ```html
 <div style="position: relative; aspect-ratio: 3/4; background: #FFFFFF;
@@ -346,12 +346,12 @@ Defines a concept. Includes a tinted "现状" sticky-note + mini-schematic + a b
                 font-size: 10px; color: #8C7E68; letter-spacing: 0.05em;
                 margin-bottom: 3px;">~ {INTRO_LABEL}</div>
     <div style="font-size: 11px; line-height: 1.55; color: #1F1B16;">
-      {INTRO_BODY — 2-3 lines describing the situation}
+      {INTRO_BODY — 描述现状的 2-3 行}
     </div>
   </div>
 
   <div style="margin-top: 8px;">
-    {SCHEMATIC_SVG — see schematic patterns in visual-system.md}
+    {SCHEMATIC_SVG — 见 visual-system.md 中的示意图模式}
   </div>
 
   <div style="margin-top: 6px;">
@@ -372,46 +372,46 @@ Defines a concept. Includes a tinted "现状" sticky-note + mini-schematic + a b
           <path d="M 1 1 L 8 8 M 8 1 L 1 8"
                 stroke="#B23A26" stroke-width="1.4" stroke-linecap="round"/>
         </svg>
-        {BULLET_1 with optional <b>emphasis</b> + parenthetical specifics}
+        {BULLET_1 含可选 <b>强调</b> + 括号内具体细节}
       </li>
-      <!-- repeat for bullets 2..N (3 to 5 max) -->
+      <!-- 重复用于第 2..N 项(最多 3 到 5 项) -->
     </ul>
   </div>
 
   <div style="margin-top: auto; display: flex; align-items: center;
               gap: 6px; padding-top: 8px;">
-    {TRADE_OFF_SVG_AND_LINE — see visual-system.md}
+    {TRADE_OFF_SVG_AND_LINE — 见 visual-system.md}
   </div>
 </div>
 ```
 
-### Bullets with parenthetical specifics (required)
+### 带括号具体细节的 bullet(必需)
 
-Concept-card bullets must follow this pattern:
+概念卡的 bullet 必须遵循这个模式:
 ```
-{symptom or claim} · <b>{key term}</b>（{specific 1}，{specific 2 or clarification}）
+{症状或论断} · <b>{关键术语}</b>({具体 1},{具体 2 或澄清})
 ```
 
-**Two specifics in parens, not one.** A specific is a number, a named tool, a concrete scenario, or a before/after. The two specifics should be different *kinds* — e.g. (concrete scenario, numerical consequence) — to layer the credibility.
+**括号里写两个具体细节,而不是一个。** 一个具体可以是数字、具名工具、具体场景或前后对比。两个具体应该是不同*类别*——例如(具体场景,数值后果)——以叠加可信度。
 
-Examples:
-- `cosine sim 一刀切 · 时序丢光（早晨 vs 上周一视同仁，召回 ranking 完全失效）`
-- `top-k 易塞满 16K context（k=20×800tok 就吃光，剩余 system+task 不够装）`
-- `偏好被闲聊淹没（"喜欢 Python" 埋在 100 条 "thanks" 里，召回率 < 5%）`
-- `长尾任务从未召回（embedding sim 偏向高频 query，新意图首次失败概率 ~ 70%）`
-- `偏好 update 越积越多（旧条目不删，3 个月后 query 召回 5+ 条互相矛盾）`
+例子:
+- `cosine sim 一刀切 · 时序丢光(早晨 vs 上周一视同仁,召回 ranking 完全失效)`
+- `top-k 易塞满 16K context(k=20×800tok 就吃光,剩余 system+task 不够装)`
+- `偏好被闲聊淹没("喜欢 Python" 埋在 100 条 "thanks" 里,召回率 < 5%)`
+- `长尾任务从未召回(embedding sim 偏向高频 query,新意图首次失败概率 ~ 70%)`
+- `偏好 update 越积越多(旧条目不删,3 个月后 query 召回 5+ 条互相矛盾)`
 
-The parenthetical is what makes the bullet *credible* to a peer reader — it signals lived experience. **Single-specific bullets pass v0 but fail v1.** Each bullet should give the reader two reasons to believe the author.
+括号是让 bullet 对同行读者*可信*的关键——它传递的是亲历经验。**单一 specific 的 bullet 能过 v0,但过不了 v1。** 每条 bullet 都该给读者两个相信作者的理由。
 
-A concept card has 4–6 such bullets. Below 4 = card looks thin. Above 6 = visually crowded.
+一张概念卡有 4–6 条这样的 bullet。少于 4 条 = 卡看起来很单薄。多于 6 条 = 视觉拥挤。
 
 ---
 
-## 3. Architecture card
+## 3. Architecture card(架构卡)
 
-Shows N (3–6) parallel modules + their cooperation. Module boxes have dashed brand-red borders, cream backgrounds, lucide icons.
+展示 N(3–6)个并列模块 + 它们之间的协作。模块方框带虚线品牌红边框、cream 背景、lucide 图标。
 
-### Structure
+### 结构
 
 ```
 [kicker + rule]                  [page #]
@@ -431,36 +431,36 @@ Shows N (3–6) parallel modules + their cooperation. Module boxes have dashed b
 △ 代价 · text
 ```
 
-### Layout density rules
+### 布局密度规则
 
-- **3 modules** → 1 column (vertical stack), each module ~70–78px tall (with 2-field detail)
-- **4–6 modules** → 2×2 or 2×3 grid; in grid mode, can fall back to 1-field detail (single dense line per module) if 2-field would overflow
-- **7+ modules** → split into two cards or simplify; don't cram
+- **3 个模块** → 1 列(垂直堆叠),每个模块约 70–78px 高(带 2 字段细节)
+- **4–6 个模块** → 2×2 或 2×3 网格;在网格模式下,如果 2 字段会溢出,可降级为 1 字段细节(每个模块单行密集描述)
+- **7 个及以上** → 拆成两张卡或简化;不要硬塞
 
-### Module detail: structured 2-field pattern (required for vertical-stack architecture)
+### 模块细节:结构化 2 字段模式(垂直堆叠架构卡必需)
 
-Each module's secondary block is **two short labeled lines**, not one dense line. The two fields capture *what the module IS* and *how it actually works*. The labels are italic-serif red, the detail is regular gray.
+每个模块的次级块是**两行短的带标签内容**,而不是一行密集描述。两个字段抓住*模块是什么*与*它实际怎么工作*。标签是 italic-serif 红色,细节是普通灰色。
 
-Pick the label pair that fits the module type:
+按模块类型挑选标签对:
 
-| Module type | Field 1 | Field 2 | Example |
+| 模块类型 | 字段 1 | 字段 2 | 例子 |
 |---|---|---|---|
-| Storage layer | `存储` | `召回` | `存储 SQLite KV，每条 50–200 字` / `召回 FTS5 全文 + LLM top-5 二次过滤` |
-| Process / runtime layer | `触发` | `行为` | `触发 任务结束自动 nudge` / `行为 LLM 蒸馏 facts → 写 KV` |
-| Data layer | `范围` | `持久化` | `范围 当前 step plan + tool 输出` / `持久化 完成 step 即清空，无独立 DB` |
-| Integration | `输入` | `输出` | `输入 5KB 多轮原文` / `输出 200B 结构化 facts (~25:1 压缩)` |
-| Generic fallback | `怎么用` | `不怎么用` | `怎么用 long-context 推理` / `不怎么用 检索式 query` |
+| 存储层 | `存储` | `召回` | `存储 SQLite KV,每条 50–200 字` / `召回 FTS5 全文 + LLM top-5 二次过滤` |
+| 进程 / 运行时层 | `触发` | `行为` | `触发 任务结束自动 nudge` / `行为 LLM 蒸馏 facts → 写 KV` |
+| 数据层 | `范围` | `持久化` | `范围 当前 step plan + tool 输出` / `持久化 完成 step 即清空,无独立 DB` |
+| 集成 | `输入` | `输出` | `输入 5KB 多轮原文` / `输出 200B 结构化 facts (~25:1 压缩)` |
+| 通用兜底 | `怎么用` | `不怎么用` | `怎么用 long-context 推理` / `不怎么用 检索式 query` |
 
-Each field detail must contain **at least 1 specific** (number / named tool / file / scenario). A 2-field block with no specifics fails the density floor.
+每个字段细节必须包含**至少 1 个具体**(数字 / 具名工具 / 文件 / 场景)。一个不带任何 specific 的 2 字段块过不了密度下限。
 
-### Hand-drawn elements used (4)
+### 使用的手绘元素 (4 种)
 
-1. Hand-drawn ellipse around the key word in title (amber)
-2. Dashed red borders on module boxes
-3. Tilted "关键" sticker (amber) at bottom
-4. Star sticker peeking out of the "关键" sticker corner
+1. 标题中关键词周围的手绘椭圆(琥珀色)
+2. 模块方框上的虚线红边
+3. 卡片底部的倾斜"关键"贴纸(琥珀色)
+4. 从"关键"贴纸角落探出的星星贴纸
 
-### Template (3-module vertical variant)
+### 模板(3 模块垂直变体)
 
 ```html
 <div style="position: relative; aspect-ratio: 3/4; background: #FFFFFF;
@@ -505,7 +505,7 @@ Each field detail must contain **at least 1 specific** (number / named tool / fi
               color: #1F1B16;">{INTRO_LINE}</div>
 
   <div style="display: flex; flex-direction: column; gap: 6px; margin-top: 9px;">
-    <!-- repeat module-box block for each module -->
+    <!-- 为每个模块重复此 module-box 块 -->
     <div style="display: flex; gap: 9px; padding: 8px 10px;
                 border: 0.8px dashed #B23A26; border-radius: 4px;
                 background: #FAF5E8; align-items: flex-start;">
@@ -524,10 +524,10 @@ Each field detail must contain **at least 1 specific** (number / named tool / fi
                     line-height: 1.4;">
           <span style="font-family: var(--font-serif); font-style: italic;
                        color: #B23A26;">{FIELD_1_LABEL}</span>
-          {FIELD_1_DETAIL — with specifics}<br/>
+          {FIELD_1_DETAIL — 含具体细节}<br/>
           <span style="font-family: var(--font-serif); font-style: italic;
                        color: #B23A26;">{FIELD_2_LABEL}</span>
-          {FIELD_2_DETAIL — with specifics}
+          {FIELD_2_DETAIL — 含具体细节}
         </div>
       </div>
     </div>
@@ -536,7 +536,7 @@ Each field detail must contain **at least 1 specific** (number / named tool / fi
   <div style="margin-top: 8px; font-family: var(--font-serif); font-style: italic;
               font-size: 10px; color: #8C7E68; line-height: 1.5;">
     <span style="color: #B23A26; letter-spacing: 0.05em;">~ 数据流</span>
-    &nbsp; {how modules cooperate at runtime}
+    &nbsp; {模块在运行时如何协作}
   </div>
 
   <div style="margin-top: 8px; padding: 7px 11px 7px 12px;
@@ -552,7 +552,7 @@ Each field detail must contain **at least 1 specific** (number / named tool / fi
                  font-size: 10px; color: #8B6809; letter-spacing: 0.05em;
                  font-weight: 700;">关键</span>
     <span style="font-size: 11px; color: #1F1B16; font-weight: 500;
-                 margin-left: 6px;">{TAKEAWAY — 8-16 chars}</span>
+                 margin-left: 6px;">{TAKEAWAY — 8-16 字}</span>
   </div>
 
   <div style="margin-top: auto; display: flex; align-items: center;
@@ -562,31 +562,31 @@ Each field detail must contain **at least 1 specific** (number / named tool / fi
 </div>
 ```
 
-### Lucide icon paths reference
+### Lucide 图标路径参考
 
-(unchanged from v0)
+(与 v0 相同未变)
 
-| Concept | Lucide name | Path |
+| 概念 | Lucide 名 | Path |
 |---|---|---|
-| Layered / context | `layers` | `<polygon points="12 2 2 7 12 12 22 7 12 2"/><polyline points="2 17 12 22 22 17"/><polyline points="2 12 12 17 22 12"/>` |
-| Workflow / routing | `workflow` | `<rect width="8" height="8" x="3" y="3" rx="2"/><path d="M7 11v4a2 2 0 0 0 2 2h4"/><rect width="8" height="8" x="13" y="13" rx="2"/>` |
-| Shield / guard | `shield` | `<path d="M20 13c0 5-3.5 7.5-7.66 8.95a1 1 0 0 1-.67-.01C7.5 20.5 4 18 4 13V6a1 1 0 0 1 1-1c2 0 4.5-1.2 6.24-2.72a1.17 1.17 0 0 1 1.52 0C14.51 3.81 17 5 19 5a1 1 0 0 1 1 1z"/>` |
-| Database / state | `database` | `<ellipse cx="12" cy="5" rx="9" ry="3"/><path d="M3 5V19A9 3 0 0 0 21 19V5"/><path d="M3 12A9 3 0 0 0 21 12"/>` |
-| Recovery / loop | `rotate-ccw` | `<path d="M3 12a9 9 0 1 0 9-9 9.75 9.75 0 0 0-6.74 2.74L3 8"/><path d="M3 3v5h5"/>` |
-| Observability / eye | `eye` | `<path d="M2.062 12.348a1 1 0 0 1 0-.696 10.75 10.75 0 0 1 19.876 0 1 1 0 0 1 0 .696 10.75 10.75 0 0 1-19.876 0"/><circle cx="12" cy="12" r="3"/>` |
-| Clock / timing | `clock` | `<circle cx="12" cy="12" r="10"/><polyline points="12 6 12 12 16 14"/>` |
-| History / timeline | `history` | `<path d="M3 12a9 9 0 1 0 9-9 9.75 9.75 0 0 0-6.74 2.74L3 8"/><path d="M3 3v5h5"/><path d="M12 7v5l4 2"/>` |
-| GPU / hardware | `cpu` | `<rect width="16" height="16" x="4" y="4" rx="2"/><rect width="6" height="6" x="9" y="9" rx="1"/><path d="M15 2v2"/><path d="M15 20v2"/><path d="M2 15h2"/><path d="M2 9h2"/><path d="M20 15h2"/><path d="M20 9h2"/><path d="M9 2v2"/><path d="M9 20v2"/>` |
+| 分层 / 上下文 | `layers` | `<polygon points="12 2 2 7 12 12 22 7 12 2"/><polyline points="2 17 12 22 22 17"/><polyline points="2 12 12 17 22 12"/>` |
+| 工作流 / 路由 | `workflow` | `<rect width="8" height="8" x="3" y="3" rx="2"/><path d="M7 11v4a2 2 0 0 0 2 2h4"/><rect width="8" height="8" x="13" y="13" rx="2"/>` |
+| 盾牌 / 守卫 | `shield` | `<path d="M20 13c0 5-3.5 7.5-7.66 8.95a1 1 0 0 1-.67-.01C7.5 20.5 4 18 4 13V6a1 1 0 0 1 1-1c2 0 4.5-1.2 6.24-2.72a1.17 1.17 0 0 1 1.52 0C14.51 3.81 17 5 19 5a1 1 0 0 1 1 1z"/>` |
+| 数据库 / 状态 | `database` | `<ellipse cx="12" cy="5" rx="9" ry="3"/><path d="M3 5V19A9 3 0 0 0 21 19V5"/><path d="M3 12A9 3 0 0 0 21 12"/>` |
+| 恢复 / 循环 | `rotate-ccw` | `<path d="M3 12a9 9 0 1 0 9-9 9.75 9.75 0 0 0-6.74 2.74L3 8"/><path d="M3 3v5h5"/>` |
+| 可观测 / 眼睛 | `eye` | `<path d="M2.062 12.348a1 1 0 0 1 0-.696 10.75 10.75 0 0 1 19.876 0 1 1 0 0 1 0 .696 10.75 10.75 0 0 1-19.876 0"/><circle cx="12" cy="12" r="3"/>` |
+| 时钟 / 时序 | `clock` | `<circle cx="12" cy="12" r="10"/><polyline points="12 6 12 12 16 14"/>` |
+| 历史 / 时间线 | `history` | `<path d="M3 12a9 9 0 1 0 9-9 9.75 9.75 0 0 0-6.74 2.74L3 8"/><path d="M3 3v5h5"/><path d="M12 7v5l4 2"/>` |
+| GPU / 硬件 | `cpu` | `<rect width="16" height="16" x="4" y="4" rx="2"/><rect width="6" height="6" x="9" y="9" rx="1"/><path d="M15 2v2"/><path d="M15 20v2"/><path d="M2 15h2"/><path d="M2 9h2"/><path d="M20 15h2"/><path d="M20 9h2"/><path d="M9 2v2"/><path d="M9 20v2"/>` |
 
-For others, search lucide.dev. Keep `stroke-width="1.6"`.
+其他图标搜索 lucide.dev。保持 `stroke-width="1.6"`。
 
 ---
 
-## 4. Compare card
+## 4. Compare card(对比卡)
 
-Side-by-side or naïve-vs-ours comparison. The visual contrast IS the design — left side neutral/gray, right side brand-red emphasis.
+并列对比或"朴素 vs 我们"的对比。视觉上的反差**就是**这种设计——左侧中性/灰,右侧品牌红强调。
 
-### Structure
+### 结构
 
 ```
 [kicker + rule]                       [page #]
@@ -605,27 +605,27 @@ Side-by-side or naïve-vs-ours comparison. The visual contrast IS the design —
 △ 代价 · text
 ```
 
-Left column: gray bullets (`#8C7E68`), neutral phrasing of pain points.
-Right column: red bullets (`#B23A26`), with key terms bolded and red.
+左列:灰色 bullet(`#8C7E68`),用中性措辞描述痛点。
+右列:红色 bullet(`#B23A26`),关键术语加粗加红。
 
-### Density floor for this card
+### 这种卡的密度下限
 
-Each bullet — both columns — must contain **≥ 1 specific** (number, named tool, concrete mechanism). Both columns get this rule because comparison only works when both sides are concrete. A vague-vs-vague compare card teaches nothing.
+每条 bullet——两列都一样——必须包含**≥ 1 个具体**(数字、具名工具、具体机制)。两列都要遵守这条规则,因为只有当两边都具体时,对比才能成立。一张模糊对模糊的对比卡什么也教不了。
 
-- ✗ `全部混在一起检索` / `三层独立检索` (both vague)
-- ✓ `cosine sim 全部混着检（不带时间衰减）` / `三层各自检索（FTS5 + cosine + KV 三种召回）`
+- ✗ `全部混在一起检索` / `三层独立检索`(都很模糊)
+- ✓ `cosine sim 全部混着检(不带时间衰减)` / `三层各自检索(FTS5 + cosine + KV 三种召回)`
 
-Right column bullets should bold + redden the **key term** (the substantive noun the technique introduces), with the rest of the bullet describing it. Visually this lets a skimmer absorb just the bold red words and still understand the post.
+右列 bullet 应将**关键术语**(技法引入的实质名词)加粗 + 染红,bullet 其余部分描述它。视觉上这让略读者只吸收加粗的红字也能理解整篇。
 
-Bullet count: **4-5 per column**. 3 looks thin, 6+ visually crowds.
+bullet 数量:**每列 4-5 条**。3 条看起来单薄,6+ 视觉拥挤。
 
-### Hand-drawn elements (3)
+### 手绘元素 (3 种)
 
-1. `vs` in title rendered in brand-red
-2. Hand-drawn × marks for "naïve" header
-3. Amber star for "ours" header
+1. 标题中的 `vs` 用品牌红呈现
+2. "naïve" 标头旁的手绘 × 标记
+3. "ours" 标头旁的琥珀色星星
 
-### Template
+### 模板
 
 ```html
 <div style="position: relative; aspect-ratio: 3/4; background: #FFFFFF;
@@ -677,7 +677,7 @@ Bullet count: **4-5 per column**. 3 looks thin, 6+ visually crowds.
                        width: 4px; height: 4px; background: #8C7E68;"></span>
           {LEFT_BULLET_1}
         </li>
-        <!-- repeat for left bullets -->
+        <!-- 重复用于左列其余 bullet -->
       </ul>
     </div>
     <div style="border-left: 0.5px solid #1F1B1625; padding-left: 12px;">
@@ -697,9 +697,9 @@ Bullet count: **4-5 per column**. 3 looks thin, 6+ visually crowds.
         <li style="padding-left: 10px; position: relative; margin-bottom: 6px;">
           <span style="position: absolute; left: 0; top: 7px;
                        width: 4px; height: 4px; background: #B23A26;"></span>
-          {RIGHT_BULLET_1 with <b style="color:#B23A26;">key term</b>}
+          {RIGHT_BULLET_1 含 <b style="color:#B23A26;">关键术语</b>}
         </li>
-        <!-- repeat for right bullets -->
+        <!-- 重复用于右列其余 bullet -->
       </ul>
     </div>
   </div>
@@ -713,11 +713,11 @@ Bullet count: **4-5 per column**. 3 looks thin, 6+ visually crowds.
 
 ---
 
-## 5. Pitfall card
+## 5. Pitfall card(陷阱卡)
 
-The "I assumed X but actually Y" card. Two stacked panels, the second with amber highlight (sticker-tilted).
+"我以为 X,实际上 Y"的卡。两个堆叠面板,第二个用琥珀色高亮(并做贴纸式倾斜)。
 
-### Structure
+### 结构
 
 ```
 [kicker + rule]                       [page #]
@@ -739,28 +739,28 @@ The "I assumed X but actually Y" card. Two stacked panels, the second with amber
 △ 代价 · text
 ```
 
-### Density floor for this card
+### 这种卡的密度下限
 
-The "实际" panel is the entire payoff of the pitfall card. It must contain **≥ 3 specifics** — without them the card is just an opinion. Use concrete forms:
-- Numerical thresholds: `< 30 条样本里几乎随机` / `top-3 召回有 1-2 个噪声` / `约 50-100 个任务才进入可用区`
-- Named mechanisms: `embedding ann 索引才有 cluster 结构` / `cosine sim 在小样本里坍缩`
-- Time/scale: `前 1-2 周` / `accumulate 50+`
-- Failure modes: `召回率 ~ 5%` / `延迟 +200ms`
+"实际"面板就是陷阱卡的全部 payoff。它必须包含**≥ 3 个具体**——没有的话这张卡就只是一个观点。使用具体的形式:
+- 数值阈值:`< 30 条样本里几乎随机` / `top-3 召回有 1-2 个噪声` / `约 50-100 个任务才进入可用区`
+- 具名机制:`embedding ann 索引才有 cluster 结构` / `cosine sim 在小样本里坍缩`
+- 时间/规模:`前 1-2 周` / `accumulate 50+`
+- 失败模式:`召回率 ~ 5%` / `延迟 +200ms`
 
-The "看起来" panel can stay short (1-2 lines, just the assumption). Asymmetry between panels is intentional — the pitfall card sells *the gap*.
+"看起来"面板可以保持简短(1-2 行,只写假设)。两个面板之间的不对称是有意为之——陷阱卡卖的就是*那个落差*。
 
-### Label conventions
+### 标签约定
 
-- For analytical/解读 posts (you're explaining someone else's project): use `~ 看起来 / ★ 实际`
-- For war-story/复盘 posts (you're writing about your own work): use `~ 以为 / ★ 结果`
+- 解析/解读类帖子(你在解读别人的项目):用 `~ 看起来 / ★ 实际`
+- 战记/复盘类帖子(你在写自己的工作):用 `~ 以为 / ★ 结果`
 
-### Hand-drawn elements (3)
+### 手绘元素 (3 种)
 
-1. Down arrow (custom SVG) between panels — brand-red
-2. Star sticker on the "实际"/"结果" panel header
-3. Sticker tilt (-0.6deg) on the "实际"/"结果" panel
+1. 两面板之间的向下箭头(自定义 SVG)——品牌红
+2. "实际"/"结果"面板标头上的星星贴纸
+3. "实际"/"结果"面板的贴纸倾斜(-0.6deg)
 
-### Template
+### 模板
 
 ```html
 <div style="position: relative; aspect-ratio: 3/4; background: #FFFFFF;
@@ -768,7 +768,7 @@ The "看起来" panel can stay short (1-2 lines, just the assumption). Asymmetry
             border: 1px solid #E8E2D6; border-radius: 8px; color: #1F1B16;
             box-sizing: border-box; overflow: hidden;">
 
-  <!-- corner number, kicker, rule (same as concept template) -->
+  <!-- 角落数字、kicker、分割线(同 concept 模板) -->
 
   <div style="margin-top: 14px;">
     <div style="font-size: 21px; font-weight: 700; line-height: 1.2;
@@ -786,7 +786,7 @@ The "看起来" panel can stay short (1-2 lines, just the assumption). Asymmetry
                   font-size: 10px; letter-spacing: 0.05em; color: #8C7E68;
                   margin-bottom: 5px;">~ {EXPECTED_LABEL}</div>
       <div style="font-size: 12px; line-height: 1.55; color: #1F1B16;">
-        {EXPECTED_BODY — what you'd assume}
+        {EXPECTED_BODY — 你会以为的样子}
       </div>
     </div>
 
@@ -810,7 +810,7 @@ The "看起来" panel can stay short (1-2 lines, just the assumption). Asymmetry
                   font-size: 10px; letter-spacing: 0.05em; color: #8B6809;
                   font-weight: 700; margin-bottom: 5px;">{ACTUAL_LABEL}</div>
       <div style="font-size: 12px; line-height: 1.55; color: #1F1B16;">
-        {ACTUAL_BODY — what actually happens, with concrete details}
+        {ACTUAL_BODY — 实际发生的样子,带具体细节}
       </div>
     </div>
   </div>
@@ -824,11 +824,11 @@ The "看起来" panel can stay short (1-2 lines, just the assumption). Asymmetry
 
 ---
 
-## 6. Summary card
+## 6. Summary card(收束卡)
 
-The closing card. 适用 / 不适用 lists with bulleted takeaways.
+收束卡。适用 / 不适用 列表配带要点的项目。
 
-### Structure
+### 结构
 
 ```
 [kicker + rule]                       [page #]
@@ -847,23 +847,23 @@ The closing card. 适用 / 不适用 lists with bulleted takeaways.
 △ 代价 · text (optional, often omitted on summary)
 ```
 
-### Density floor for this card
+### 这种卡的密度下限
 
-Each bullet must include **a reason or specific in parens**, not just a category. The reader is deciding whether to adopt the approach — they need to see *why* each "适用" or "不适用" applies to them.
+每条 bullet 必须在括号中带**一个理由或具体细节**,而不是只写一个分类。读者正在决定要不要采纳这种做法——他们需要看到每条"适用"或"不适用"*为什么*适用于自己。
 
-- ✗ `长期对话连续性是核心需求` (too generic)
-- ✓ `长期对话连续性是核心需求（个人助手、24h+ 长任务 agent，需要 50+ 轮记忆）`
-- ✗ `单次完成型任务` (too generic)
-- ✓ `单次完成型任务（一次 LLM 调用就完成的，short-term 一层就够）`
+- ✗ `长期对话连续性是核心需求`(过于泛)
+- ✓ `长期对话连续性是核心需求(个人助手、24h+ 长任务 agent,需要 50+ 轮记忆)`
+- ✗ `单次完成型任务`(过于泛)
+- ✓ `单次完成型任务(一次 LLM 调用就完成的,short-term 一层就够)`
 
-Each list (适用/不适用) typically has 3 items. Below 3 the section looks thin. 2+2 is acceptable when the post is short.
+每个列表(适用/不适用)通常 3 项。少于 3 项这一栏看起来单薄。当帖子较短时,2+2 是可接受的。
 
-### Hand-drawn elements (2)
+### 手绘元素 (2 种)
 
-1. Amber star next to "适用" header
-2. Hand-drawn × next to "不适用" header
+1. "适用" 标头旁的琥珀色星星
+2. "不适用" 标头旁的手绘 ×
 
-### Template
+### 模板
 
 ```html
 <div style="position: relative; aspect-ratio: 3/4; background: #FFFFFF;
@@ -871,7 +871,7 @@ Each list (适用/不适用) typically has 3 items. Below 3 the section looks th
             border: 1px solid #E8E2D6; border-radius: 8px; color: #1F1B16;
             box-sizing: border-box; overflow: hidden;">
 
-  <!-- corner number, kicker, rule, title, gist (same as concept) -->
+  <!-- 角落数字、kicker、分割线、标题、gist(同 concept) -->
 
   <div style="margin-top: 14px;">
     <div style="font-family: var(--font-serif); font-style: italic;
@@ -888,9 +888,9 @@ Each list (适用/不适用) typically has 3 items. Below 3 the section looks th
       <li style="padding-left: 12px; position: relative;">
         <span style="position: absolute; left: 0; top: 7px;
                      width: 5px; height: 5px; background: #B23A26;"></span>
-        {APPLY_BULLET_1 — short takeaway}
+        {APPLY_BULLET_1 — 简短要点}
       </li>
-      <!-- repeat -->
+      <!-- 重复 -->
     </ul>
 
     <div style="font-family: var(--font-serif); font-style: italic;
@@ -909,66 +909,66 @@ Each list (适用/不适用) typically has 3 items. Below 3 the section looks th
                      width: 5px; height: 5px; background: #8C7E68;"></span>
         {NOT_APPLY_BULLET_1}
       </li>
-      <!-- repeat -->
+      <!-- 重复 -->
     </ul>
   </div>
 
-  <!-- trade-off omitted on summary cards (it's already implicit in 不适用) -->
+  <!-- 收束卡上省略 trade-off(它已在"不适用"中隐含) -->
 </div>
 ```
 
 ---
 
-## 7. Flow card (principle-only, template not yet locked)
+## 7. Flow card(流程卡,仅原则,模板尚未锁定)
 
-Sequential pipeline. 3–5 stages with arrows between them.
+顺序流水线。3–5 个阶段,中间带箭头。
 
-**Structural primitives**:
-- Vertical stack of stage boxes
-- Each stage box: similar to architecture module box (icon + name + dense desc) but with arrow emerging downward to next stage
-- Optional: arrow labels for the transition ("then", "if X", checkpoint markers)
+**结构原语**:
+- 阶段方框的垂直堆叠
+- 每个阶段方框:类似架构卡的模块方框(图标 + 名称 + 密集描述),但有箭头向下指向下一阶段
+- 可选:转换处的箭头标签("then"、"if X"、检查点标记)
 
-**To be locked after a real demo run** — the design challenge is making vertical arrows feel editorial-tasteful (not flowchart-y).
-
----
-
-## 8. Code card (principle-only, template not yet locked)
-
-Key snippet with annotations.
-
-**Constraints**:
-- Use `font-family: var(--font-mono); font-size: 11px;`
-- Background: `#1F1B1605` (very subtle ink tint, NOT a dark code block)
-- Highlight 1–3 lines max with `background: #B23A2615`
-- Annotation arrow + label can call out a specific line (use brand-red 0.8px)
-- Snippet length: ≤12 lines. Longer code: excerpt or summarize.
-
-**To be locked after a real demo run.**
+**待真实 demo 跑过后再锁定** — 设计挑战在于让垂直箭头看起来有 editorial 味(而不是流程图味)。
 
 ---
 
-## Density rules (apply across all card types)
+## 8. Code card(代码卡,仅原则,模板尚未锁定)
 
-- **Word count target**: **220–300 Chinese-character-equivalent** per card body (excluding kicker, page number, title, gist, trade-off line). See SKILL.md "Density floor" for the formal checklist.
-- **Specificity floor**: ≥ **6 specific data points** per card body (numbers, named tools, concrete scenarios, before/after). Every bullet must carry ≥ 1 specific; concept-card bullets must carry ≥ 2 specifics.
-- **Bullet count**: **4–6**. Below 4, the list reads as "padding". Above 6, the card looks too busy.
-- **Sections per card**: at most 3 distinct sections (intro / schematic / list) plus the trade-off. More fragmentation makes scanning hard.
-- **Architecture module detail**: structured 2-field pattern (see "Module detail: structured 2-field pattern" above). Single-line module detail is v0; v1.1 requires 2-field for vertical-stack architecture cards.
-- **Pitfall 实际 panel**: ≥ 3 specifics. The reveal needs concrete proof, not just a counter-claim.
-- **Sticker tilts**: at most 2 elements per card. More than that and the design gets disorienting.
-- **Hand-drawn elements**: 3–5 per card per the visual-system.md vocabulary list. Don't combine all 7.
+带注释的关键片段。
 
-### How to grow density without breaking the layout
+**约束**:
+- 使用 `font-family: var(--font-mono); font-size: 11px;`
+- 背景:`#1F1B1605`(极淡的墨色染色,**不是**深色代码块)
+- 最多高亮 1–3 行,`background: #B23A2615`
+- 注释箭头 + 标签可指向某一行(用品牌红 0.8px)
+- 片段长度:≤12 行。更长的代码:摘录或概述。
 
-When the card body has too few specifics:
-1. Add a parenthetical `(specific 1, specific 2)` to existing bullets — doesn't change visual structure, just text length
-2. Convert single-line module detail to 2-field detail (architecture cards) — adds ~12px per module
-3. Add a 现状 tinted box if the concept card lacks setup context
-4. Add the 数据流 line if the architecture card lacks the runtime flow story
+**待真实 demo 跑过后再锁定。**
 
-When the card body is over the 300 ceiling:
-1. Trim parentheticals first (keep 1 specific, drop the second clarification)
-2. Drop the optional intro line on architecture cards
-3. Drop the 关键 callout if 数据流 already conveys the takeaway
-4. Reduce bullet count by 1 (5 → 4)
-5. As a last resort: split into two cards (one is too dense for 3:4)
+---
+
+## 密度规则(适用于所有卡片类型)
+
+- **字数目标**:卡片正文(不含 kicker、页码、标题、gist、代价行)**220–300 个汉字等价**。正式清单见 SKILL.md 的 "Density floor"。
+- **具体细节下限**:卡片正文 ≥ **6 个 specific 数据点**(数字、具名工具、具体场景、前后对比)。每条 bullet 必须带 ≥ 1 个 specific;概念卡的 bullet 必须带 ≥ 2 个 specific。
+- **bullet 数量**:**4–6**。少于 4 条,列表读起来像"凑数"。多于 6 条,卡看起来过载。
+- **每张卡的小节数**:最多 3 个不同小节(intro / 示意图 / 列表)再加代价行。再多碎片化会让扫读变难。
+- **架构模块细节**:结构化 2 字段模式(见上文 "模块细节:结构化 2 字段模式")。单行模块细节是 v0;v1.1 要求垂直堆叠架构卡使用 2 字段。
+- **陷阱卡的"实际"面板**:≥ 3 个 specific。揭示需要具体证据,而不只是反向论断。
+- **贴纸倾斜**:每张卡最多 2 个倾斜元素。再多设计就会让人晕。
+- **手绘元素**:每张卡 3–5 个,从 visual-system.md 的词汇表中挑。不要 7 个全用上。
+
+### 如何在不破坏布局的情况下提升密度
+
+当卡片正文 specific 太少时:
+1. 给已有 bullet 加一个括号 `(具体 1, 具体 2)`——不改变视觉结构,只增加文本长度
+2. 把单行模块细节改成 2 字段细节(架构卡)——每个模块多约 12px
+3. 如果概念卡缺铺垫语境,加一个"现状"着色框
+4. 如果架构卡缺运行时流程描述,加"数据流"行
+
+当卡片正文超过 300 字上限时:
+1. 先精简括号(保留 1 个 specific,丢掉第二个澄清)
+2. 删掉架构卡上可选的 intro 行
+3. 如果"数据流"已经传达了要点,删掉"关键"标注
+4. 把 bullet 数量减 1 (5 → 4)
+5. 最后才考虑:拆成两张卡(对 3:4 来说一张确实太密)

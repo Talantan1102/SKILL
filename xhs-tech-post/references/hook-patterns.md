@@ -1,164 +1,164 @@
-# Hook Patterns
+# Hook 模式
 
-The cover's job is to make a peer engineer want to swipe to card 02 — without using clickbait language that signals low-taste content. Four patterns are allowed; pick one based on the post's content shape.
+封面的任务是让一位同行工程师愿意滑动到第 02 张卡片——并且不能使用那种暗示低质内容的标题党语言。允许使用四种模式;根据帖子的内容形态来选其一。
 
-## The 4 hooks
+## 4 种 hook
 
 ### A — 数字反差 (numeric before-after)
 
-**Shape**: `<before number> → <after number>`
+**形态**:`<前一个数字> → <后一个数字>`
 
-**When to use**: optimization posts, performance work, anything where the headline is a measured change.
+**何时使用**:优化类帖子、性能工作,凡是标题落点是一个可量化变化的内容。
 
-**Examples from real material**:
-- `75s → 24s` (TTFT optimization)
-- `25K → 10K` (prompt token reduction)
-- `5 GPU → 1 GPU` (resource reduction)
+**真实素材中的示例**:
+- `75s → 24s` (TTFT 优化)
+- `25K → 10K` (prompt token 削减)
+- `5 GPU → 1 GPU` (资源削减)
 
-**Anti-example**: `slow → fast` (no number = not this hook). If you don't have a hard number, use a different hook.
+**反例**:`slow → fast`(没有数字 = 不属于这种 hook)。如果你没有硬数字,就换一种 hook。
 
-**Subtitle pattern**: 1-line factual context — what was the workload, what was the constraint.
+**副标题模式**:1 行事实性背景——负载是什么、约束是什么。
 > "256K 上下文 · 单卡 KV 显存降至 1/cp_size"
 
-**Accent token**: the arrow `→`.
+**强调元素**:箭头 `→`。
 
 ---
 
 ### B — 过程式动作 ("我把 X 改成 Y")
 
-**Shape**: `<count or label> → <count or label>`, but framed as a refactor / restructuring move
+**形态**:`<数量或标签> → <数量或标签>`,但以重构 / 重新组织的动作呈现
 
-**When to use**: architecture refactors, design pattern changes, system redesigns where the headline is a structural shift.
+**何时使用**:架构重构、设计模式变更、系统重设计,凡是标题落点是一次结构性转变的内容。
 
-**Examples**:
-- `43 → 7` (43 tools refactored into 7 skills)
-- `单点 → 三阶段` (monolithic to staged pipeline)
-- `4 个服务 → 1 个 binary` (consolidation)
+**示例**:
+- `43 → 7` (43 个工具重构成 7 个 skill)
+- `单点 → 三阶段` (单体改成分阶段流水线)
+- `4 个服务 → 1 个 binary` (合并)
 
-**Difference from A**: A is "the system got faster"; B is "I changed the structure". B's subtitle should mention the *kind* of change, not just the result.
+**与 A 的差别**:A 是"系统变快了";B 是"我改了结构"。B 的副标题应该提到改动的*类别*,而不仅仅是结果。
 
-**Subtitle pattern**:
+**副标题模式**:
 > "把工具全量暴露重构成 Skill 渐进披露 / Prompt Token 直降 60%+"
 
-**Accent token**: the arrow `→`.
+**强调元素**:箭头 `→`。
 
 ---
 
 ### C — 技术名词 + 通俗动词 (concept-driven curiosity)
 
-**Shape**: `<technical noun> <colloquial verb phrase>`
+**形态**:`<技术名词> <口语化动词短语>`
 
-**When to use**: framework/concept deep-dives, mechanism explanations, "how does X work" posts.
+**何时使用**:框架/概念深挖、机制讲解、"X 是怎么工作的"类帖子。
 
-**Examples**:
+**示例**:
 - `Zigzag 切分到底偷了哪一刀`
 - `RadixAttention 凭什么能复用前缀 KV`
 - `LangGraph 的状态持久化是不是一种逃避`
 
-**Why it works**: peers who recognize the noun feel "this is in my domain"; the verb phrase signals the post will explain a mechanism, not just dump it. The verb should be slightly playful but not cute.
+**为什么有效**:认得这个名词的同行会觉得"这是我领域里的事";动词短语则暗示这篇帖子会讲机制,而不是简单堆砌。动词要略带玩味,但不能卖萌。
 
-**Banned verb shapes**:
-- "震惊！X 原来是 Y"
+**禁用的动词形态**:
+- "震惊!X 原来是 Y"
 - "你不知道的 X"
 - "99% 的人忽略的 X"
-- Anything with "yyds / 神器 / 封神"
+- 任何带 "yyds / 神器 / 封神" 的措辞
 
-**Subtitle pattern**: a hint at the angle.
+**副标题模式**:点出切入角度的提示。
 > "Ring Attention 负载均衡的小心机"
 
-**Accent token**: the technical noun (Zigzag, RadixAttention, LangGraph).
+**强调元素**:技术名词本身(Zigzag、RadixAttention、LangGraph)。
 
 ---
 
 ### D — 我以为...结果 (cognitive update)
 
-**Shape**: `以为 X (够了/收工/搞定)` followed by implied "结果不是" in subtitle.
+**形态**:`以为 X (够了/收工/搞定)`,副标题中隐含"结果不是"。
 
-**When to use**: war stories, debugging journeys, "things I learned the hard way" posts. The hook trades on self-deprecating honesty, which is a strong signal of authenticity.
+**何时使用**:战斗故事、debug 经历、"我用血泪学到的事"类帖子。这种 hook 借用的是自嘲式诚实,这是一种很强的真实性信号。
 
-**Examples**:
+**示例**:
 - `以为 GRPO 跑通就能收工`
 - `以为 LangGraph 自带就行`
 - `以为加 cache 是稳赚不亏`
 
-**Subtitle pattern**: the consequence — usually a list of pitfalls.
+**副标题模式**:后果——通常是一组踩坑列表。
 > "Reward Hacking · KL 发散 · 长尾 OOM 三连"
 
-**Accent token**: the technical noun in the cognitive object — `GRPO`, `LangGraph`, `cache`.
+**强调元素**:认知对象中的技术名词——`GRPO`、`LangGraph`、`cache`。
 
 ---
 
-## Selection algorithm
+## 选型算法
 
-Run the input through this decision tree:
+把素材过这棵决策树:
 
-1. **Is the post primarily about a measured improvement?** → A (数字反差)
-2. **Is the post primarily about a structural/design change?** → B (过程式动作)
-3. **Is the post explaining how a mechanism / framework works?** → C (技术名词)
-4. **Is the post a war story about discovering pitfalls?** → D (我以为)
+1. **帖子主要讲一次可量化的提升?** → A (数字反差)
+2. **帖子主要讲一次结构/设计变更?** → B (过程式动作)
+3. **帖子在解释某种机制 / 框架是怎么工作的?** → C (技术名词)
+4. **帖子是关于发现陷阱的战斗故事?** → D (我以为)
 
-If two apply (e.g., a refactor that also produced numbers), pick the one matching the **emotional arc of the writing** — A and B are confident; C is curious; D is humble.
+如果两条都成立(例如一次重构同时也带来了数字),挑那个匹配**写作情绪走向**的那一条——A 和 B 是自信的;C 是好奇的;D 是谦卑的。
 
-If none apply cleanly, the topic may be too thin for the format. Either ask the user to sharpen the angle or recommend a different content type.
+如果都套不进来,选题可能太薄,撑不起这种格式。要么让用户把切入角度再磨锐一点,要么换一种内容类型。
 
-## Anti-pattern banlist (for cover hooks specifically)
+## 反模式封禁清单(专门针对封面 hook)
 
-These never appear on covers in this skill, regardless of how well they "work" on mainstream Xiaohongshu:
+不论这些表达在主流小红书上"多好用",这套 skill 的封面里都不会出现:
 
-- `震惊！...`
+- `震惊!...`
 - `99% 的人 / 你不知道的 / 没人告诉你的`
 - `永远不要用 X / 这就是 X 的真相`
 - `绝绝子 / YYDS / 神器 / 封神 / 炸裂`
 - `我宣布 / 求大数据把我推荐给 / 真的好用到哭`
-- Multi-exclamation `!!!` or trailing `???`
-- Aggression toward named tools / companies (`拳打 vLLM`, `xxx 早该淘汰`) — even as humor, this signals tribal posturing
+- 多个感叹号 `!!!` 或者结尾 `???`
+- 对具名工具/公司的攻击性表达(`拳打 vLLM`、`xxx 早该淘汰`)——即便是玩笑,这也是一种站队姿态的信号
 
-### Cover failure modes (from real runs)
+### 封面失败模式(来自真实跑批)
 
-These are not banned phrases but banned visual+content patterns. If your draft cover matches one of these, redo:
+下面这些不是被禁的措辞,而是被禁的视觉+内容组合。如果你的封面草稿命中其中一种,重做:
 
-| Failure | What it looks like | Fix |
+| 失败 | 长什么样 | 修法 |
 |---|---|---|
-| **Notion screenshot** | All-white bg, small kicker, 30px hero, 3-bar stack, corner outlined number | Switch to V2 Logo Block (dark bg + 80px wordmark) |
-| **Buried anchor** | Hero "+1 → 三件套" at 56px — abstract enough that the small `+1` carries the meaning, lost at thumbnail | Switch to V1 Number Hero with the actual hard number (e.g. `27% / 10%`) |
-| **Subtitle spoiler** | Subtitle gives the full answer in plain language, killing the swipe | Subtitle should be structural context only ("1M context · DeepSeek V3.2 → V4-Pro") |
-| **Decoration-as-anchor** | The corner volume number or the 3-bar stack is the largest visual element | Add a real anchor (number / wordmark / schematic) — decoration can never be the anchor |
+| **Notion 截图** | 全白底、小 kicker、30px hero、3 条柱状堆叠、角落描边数字 | 切换到 V2 Logo Block(深色底 + 80px wordmark) |
+| **被埋掉的锚点** | hero 是 56px 的 "+1 → 三件套"——抽象到只有那个小 `+1` 在承载意义,缩略图下完全丢失 | 切换到 V1 Number Hero,用真正的硬数字(例如 `27% / 10%`) |
+| **副标题剧透** | 副标题用大白话给出了完整答案,把滑动动机杀掉了 | 副标题只能给结构性背景("1M context · DeepSeek V3.2 → V4-Pro") |
+| **装饰当锚点** | 角落的卷号数字或 3 条柱状堆叠成了视觉上最大的元素 | 加一个真锚点(数字 / wordmark / 示意图)——装饰永远不能当锚点 |
 
-## Cover hero composition rules
+## 封面 hero 排版规则
 
-Once a hook is chosen, compose the hero following these rules:
+一旦选定 hook,按这些规则排 hero:
 
-| Rule | Why |
+| 规则 | 原因 |
 |---|---|
-| Hero is **at most 12 Chinese characters / 16 ASCII characters** | Otherwise font size has to drop below 60px and the cover loses thumbnail-readability |
-| Number-type heroes (A, B-with-numbers): **80-96px** | Numbers are pre-attentive signals; this is the strongest anchor |
-| Logo / wordmark heroes (B-without-numbers, C): **64-90px** | Brand mass needs to be visible at 200px feed thumbnail |
-| Schematic-anchored covers: hero shrinks to **30-36px**, schematic carries the visual mass | When the schematic IS the anchor |
-| Accent token in **first half** of the hero text | Reading order: eye lands on first 1-3 chars first |
-| Hero must contain ≥ 1 specific anchor (number, named entity, technical noun) | "我做了一些优化" fails; "75s → 24s" succeeds |
-| Subtitle must NOT resolve the curiosity | The subtitle gives structural context (workload, version, scale), not the answer |
+| Hero **最多 12 个汉字 / 16 个 ASCII 字符** | 否则字号不得不降到 60px 以下,封面就丧失了缩略图可读性 |
+| 数字型 hero (A、带数字的 B):**80-96px** | 数字是前注意性信号;这是最强的锚点 |
+| Logo / wordmark 型 hero (不带数字的 B、C):**64-90px** | 品牌质量必须在 200px 信息流缩略图下可见 |
+| 以示意图为锚点的封面:hero 缩到 **30-36px**,由示意图承担视觉重量 | 当示意图本身*就是*锚点时 |
+| 强调元素放在 hero 文本的**前半部分** | 阅读顺序:目光先落在前 1-3 个字符 |
+| Hero 必须包含 ≥ 1 个具体锚点(数字、具名实体、技术名词) | "我做了一些优化"不行;"75s → 24s"可以 |
+| 副标题**不能**化解掉好奇心 | 副标题给的是结构性背景(负载、版本、规模),不是答案 |
 
-## Anchor selection table (mapping hook → cover archetype)
+## 锚点选型表(把 hook 映射到封面原型)
 
-For each chosen hook, pick the cover archetype that matches the post's evidence shape. These are the only valid combinations:
+对每个选定的 hook,挑那个匹配帖子证据形态的封面原型。下面这些是仅有的合法组合:
 
-| Hook | Has hard number? | Recommended archetype | Hero shape |
+| Hook | 有硬数字? | 推荐原型 | Hero 形态 |
 |---|---|---|---|
-| A (数字反差) | Yes (always) | **V1 Number Hero** | `<before> → <after>`, 80-96px |
-| B (过程式) | Yes | **V1 Number Hero** | `<count> → <count>`, 80-96px (e.g. `43 → 7`) |
-| B (过程式) | No (label-only) | **V2 Logo Block** | brand wordmark + structural verb in subtitle |
-| C (技术名词) | — | **V2 Logo Block** OR **V3 Schematic Peek** | wordmark hero, OR mini diagram + smaller text |
-| D (我以为) | — | **V2 Logo Block** | "以为 X" + brand wordmark of X |
+| A (数字反差) | 有(总是有) | **V1 Number Hero** | `<before> → <after>`,80-96px |
+| B (过程式) | 有 | **V1 Number Hero** | `<count> → <count>`,80-96px(例如 `43 → 7`) |
+| B (过程式) | 没有(只有标签) | **V2 Logo Block** | 品牌 wordmark + 副标题里的结构性动词 |
+| C (技术名词) | — | **V2 Logo Block** 或 **V3 Schematic Peek** | wordmark hero,或者迷你示意图 + 较小文字 |
+| D (我以为) | — | **V2 Logo Block** | "以为 X" + X 的品牌 wordmark |
 
-V1 / V2 / V3 archetypes are defined in `references/card-templates.md`. A V2 cover MUST have either a dark/cream block bg or a logo block taking ≥ 30% of card height — otherwise it falls back to the failure mode of "small text on white".
+V1 / V2 / V3 这几种原型在 `references/card-templates.md` 中定义。一张 V2 封面**必须**要么有深色/奶油色块底,要么有占据 ≥ 30% 卡片高度的 logo 块——否则就退化成"白底小字"那种失败模式。
 
-## Thumbnail readability test (mandatory)
+## 缩略图可读性测试(强制)
 
-Every cover must pass this test before ship:
+每张封面在出片前都要过这个测试:
 
-> Open the rendered HTML. Browser-zoom to 25% (or set the card to ~200px width). Squint. Can you see the anchor?
+> 打开渲染好的 HTML。把浏览器缩放到 25%(或者把卡片设到 ~200px 宽)。眯眼。能看到锚点吗?
 
-If the anchor is invisible or illegible at this scale, the cover has failed. Don't ship it. The two most common failures:
+如果在这个尺度下锚点不可见或不可辨认,封面就失败了。不要发出去。最常见的两种失败:
 
-1. Hero text < 60px — looks like a blank card at thumbnail
-2. White-bg + small accents + corner number — looks like a Notion screenshot
+1. Hero 文字 < 60px——缩略图下看起来像一张空白卡片
+2. 白底 + 小强调元素 + 角落数字——看起来像一张 Notion 截图

@@ -1,75 +1,75 @@
-# Visual System (v1)
+# 视觉规范 (v1)
 
-The visual contract every card inherits. Constants, not parameters — brand-series consistency comes from rigid uniformity across posts.
+每张卡片都继承的视觉契约。这里定义的是常量,而非参数 —— 品牌系列一致性来自于贴文之间严格统一的刚性规范。
 
-## Color palette
+## 配色
 
 ```
-Card background:   #FFFFFF  /* white — main canvas, locked for content cards 02+ */
-Card border:       #E8E2D6  /* warm gray, 1px — defines card edge against page */
+Card background:   #FFFFFF  /* 白色 —— 主画布,内容卡片 02+ 锁定不可改 */
+Card border:       #E8E2D6  /* 暖灰,1px —— 用于在页面上勾勒卡片边缘 */
 
-Tinted block bg:   #FAF5E8  /* cream — was the v0 main bg, now demoted to accent */
-Primary ink:       #1F1B16  /* warm off-black — for hero/title text */
-Secondary text:    #5A5246  /* warm gray — for body, captions */
-Tertiary text:     #8C7E68  /* kicker, footer, faint UI */
+Tinted block bg:   #FAF5E8  /* 米色 —— 曾是 v0 的主背景,现降级为强调色 */
+Primary ink:       #1F1B16  /* 暖调近黑色 —— 用于主视觉/标题文字 */
+Secondary text:    #5A5246  /* 暖灰 —— 正文、说明文字 */
+Tertiary text:     #8C7E68  /* 用于引子、页脚、弱化 UI */
 
-Brand primary:     #B23A26  /* terracotta — key tokens, decorations, primary accents */
-Brand deep:        #8C2A1B  /* darker terracotta — used as cover block bg in V2 dark mode */
-Brand secondary:   #D4A017  /* deep amber — decorative stars, hand-drawn loops, "关键" sticker */
-Amber-on-tint text:#8B6809  /* darker amber for text on amber-tinted bg (contrast) */
+Brand primary:     #B23A26  /* 赭红 —— 关键术语、装饰、主要强调色 */
+Brand deep:        #8C2A1B  /* 更深的赭红 —— 在 V2 暗色模式下用作封面块背景 */
+Brand secondary:   #D4A017  /* 深琥珀色 —— 装饰性星形、手绘环线、"关键" 贴纸 */
+Amber-on-tint text:#8B6809  /* 用于琥珀色背景上文字的更深琥珀色(用于对比度) */
 
-Border / divider:  #1F1B1622 /* primary ink at 13% — hairline rules */
-Inner box border:  #1F1B1625 /* primary ink at 15% — subtle box outlines */
-Dashed brand:      #B23A26 with stroke-dasharray — module boxes, sketched outlines */
+Border / divider:  #1F1B1622 /* 主墨色 13% 透明度 —— 发丝细线 */
+Inner box border:  #1F1B1625 /* 主墨色 15% 透明度 —— 微弱的盒子轮廓 */
+Dashed brand:      #B23A26 with stroke-dasharray —— 模块盒、草图轮廓 */
 
-/* Cover-only extensions (do not use on content cards) */
-Cover dark bg:     #1F1B16  /* poster mode background, full bleed */
-Cover cream-on-dark:#F5EDDC  /* hero text color when bg is dark */
-Cover dim-on-dark: #8C7E68  /* secondary text on dark — same tertiary as light */
+/* 仅用于封面的扩展(不要用在内容卡片上) */
+Cover dark bg:     #1F1B16  /* 海报模式背景,满版出血 */
+Cover cream-on-dark:#F5EDDC  /* 背景为深色时的主视觉文字颜色 */
+Cover dim-on-dark: #8C7E68  /* 深色背景上的次级文字 —— 与浅色模式下的三级文字相同 */
 ```
 
-Color use rules:
-- **Terracotta** is the primary brand color: kicker rule, key tokens in titles, ×-marks for negative bullets, trade-off triangle, schematic arrows, dashed module borders.
-- **Amber** is decorative-only: hand-drawn stars, hand-drawn ellipses around emphasis words, "关键" callout sticker bg/border. Never used for body text or structural lines.
-- **Cream** is for tinted blocks inside the white card: "现状" boxes, module box backgrounds, schematic terminal containers.
-- Never use pure black `#000000` or pure white text on a colored bg.
+颜色使用规则:
+- **赭红 (Terracotta)** 是主品牌色:引子分隔线、标题中的关键术语、负面 bullet 的 ×号、权衡三角形、示意图箭头、虚线模块边框。
+- **琥珀色 (Amber)** 仅用于装饰:手绘星形、强调词周围的手绘椭圆、"关键" 浮窗贴纸的背景/边框。绝不用于正文或结构性线条。
+- **米色 (Cream)** 用于白色卡片内的浅色块:"现状" 盒子、模块盒背景、示意图终端容器。
+- 绝不在彩色背景上使用纯黑 `#000000` 或纯白文字。
 
-## Typography
+## 字体规范
 
-Two type families only:
-- **Sans** (default): body, hero, titles, stats, module names
-- **Serif italic** (`var(--font-serif)` + `font-style: italic`): kickers, schematic captions, section labels ("→ XXX" / "~ XXX"), trade-off line, data-flow notes, "关键" callout label
+只用两套字族:
+- **无衬线 Sans**(默认):正文、主视觉、标题、数字、模块名
+- **衬线斜体 Serif italic**(`var(--font-serif)` + `font-style: italic`):引子、示意图说明、章节标签("→ XXX" / "~ XXX")、权衡行、数据流注解、"关键" 浮窗标签
 
-Two weights only:
-- **400** (regular): body, descriptions, captions
-- **700** (bold): hero, title, module names, stat numbers, bullet emphasis
+只用两个字重:
+- **400**(常规):正文、描述、说明
+- **700**(粗体):主视觉、标题、模块名、统计数字、bullet 强调
 
-Skip 600 entirely. Skipping a weight creates clearer hierarchy than gradual ramping.
+完全跳过 600。跳过一个字重比逐级递增能营造更清晰的层级。
 
-### Type scale
+### 字号系统
 
 ```
 Cover hero (number / arrow):  72-96px / 700 / line-height 0.92 / letter-spacing -0.03em
 Cover hero (logo / wordmark): 64-90px / 700 / line-height 0.95 / letter-spacing -0.02em
-Cover hero (text-on-schematic): 30-36px / 700 / line-height 1.1 (used only when schematic is the anchor)
+Cover hero (text-on-schematic): 30-36px / 700 / line-height 1.1 (仅当示意图作为锚点时使用)
 Card title:              21-23px / 700 / line-height 1.2 / letter-spacing -0.01em
-Gist line:               12px / 500 / brand-red color
+Gist line:               12px / 500 / 品牌红色
 Body / intro paragraph:  11-12px / 400 / line-height 1.55
 Bullet list:             10.5-11px / 400 / line-height 1.55-1.6
 Module name (in box):    11px / 700
 Module description:      10px / 400 / line-height 1.4
-Schematic label (inside):10-11px / 400 / serif italic / fill ink
-Schematic caption (below):9-10px / 400 / serif italic / fill secondary text
-Section label:           10px / 400 / serif italic / tracking 0.05em / brand-red OR amber
-Kicker:                  11px / 400 / serif italic / tracking 0.05em
-Stat label:              10px / 400 / serif italic / tracking 0.05em
+Schematic label (inside):10-11px / 400 / 衬线斜体 / 填充主墨色
+Schematic caption (below):9-10px / 400 / 衬线斜体 / 填充次级文字色
+Section label:           10px / 400 / 衬线斜体 / tracking 0.05em / 品牌红 或 琥珀色
+Kicker:                  11px / 400 / 衬线斜体 / tracking 0.05em
+Stat label:              10px / 400 / 衬线斜体 / tracking 0.05em
 Stat number:             17-18px / 700
-Trade-off line:          11px / 400 / serif italic / secondary text
-Data-flow note:          10px / 400 / serif italic / secondary text (with red marker prefix)
-Corner page number:      70-78px / 700 / serif / outlined (text-stroke) / opacity 0.4-0.5
+Trade-off line:          11px / 400 / 衬线斜体 / 次级文字色
+Data-flow note:          10px / 400 / 衬线斜体 / 次级文字色(带红色标记前缀)
+Corner page number:      70-78px / 700 / 衬线 / 描边(text-stroke)/ opacity 0.4-0.5
 ```
 
-## Card frame (shared by cover and all content cards)
+## 卡片框架(封面与所有内容卡片共用)
 
 ```
 aspect-ratio:    3 / 4
@@ -83,117 +83,117 @@ display:         flex
 flex-direction:  column
 ```
 
-`box-sizing: border-box;` always. Use `margin-top: auto;` on the trade-off line to push it to the card bottom.
+始终使用 `box-sizing: border-box;`。在权衡行上使用 `margin-top: auto;` 把它推到卡片底部。
 
-## Cover anchor system (v2)
+## 封面锚点系统 (v2)
 
-**The single rule that overrides all others:** the cover must be readable when displayed at 200px wide in the 小红书 feed thumbnail. If the visual main element disappears at that scale, the cover has failed. Test with: open the HTML, browser zoom to 25% — can you tell what the post is about from the cover alone?
+**凌驾于一切之上的唯一规则:**封面必须在小红书信息流中以 200px 宽度显示时仍能阅读。如果视觉主元素在那个尺度下消失,封面就失败了。测试方法:打开 HTML,浏览器缩放至 25% —— 你能否仅凭封面就判断出贴文讲什么?
 
-### Mandatory: 1 visual anchor (one of three)
+### 必选:1 个视觉锚点(三选一)
 
-**Anchor (a) — Number anchor**
+**锚点 (a) —— 数字锚点**
 
-A large number, arrow, or before-after pair. Use when the post has a hard measurable result.
+一个大数字、箭头、或前后对比对。当贴文有可量化的硬指标结果时使用。
 
-- Numerals: 80-96px, weight 700, line-height 0.92
-- Arrow `→` rendered in brand red, same size class as the numerals
-- Occupies ≥ 25% of card area
-- Often the entire vertical center of the cover
+- 数字:80-96px,字重 700,line-height 0.92
+- 箭头 `→` 用品牌红渲染,与数字同一尺寸级别
+- 占据卡片面积 ≥ 25%
+- 通常占据封面整个垂直中心
 
-**Anchor (b) — Logo block**
+**锚点 (b) —— Logo 块**
 
-A brand / framework / model name as a large wordmark, typically inside a colored block or as the central mass of a dark/poster cover. Use when the post is about a named system (DeepSeek V4, SGLang, GRPO, etc.) or when the post has no single hero number.
+一个品牌 / 框架 / 模型名作为大字标(wordmark),通常放在彩色块内或作为深色/海报封面的中心主体。当贴文围绕一个具名系统(DeepSeek V4、SGLang、GRPO 等)、或没有单一主视觉数字时使用。
 
-- Wordmark text: 64-90px, weight 700
-- Color: cream `#F5EDDC` on dark `#1F1B16` background, OR primary ink on cream block, OR mixed (one word in primary ink, the version/edition in brand red)
-- Block fill OR full-bleed bg covers ≥ 30% card height
-- Diagonal stripe / corner block is allowed as a secondary accent
+- 字标文字:64-90px,字重 700
+- 颜色:深色 `#1F1B16` 背景上的米色 `#F5EDDC`,或米色块上的主墨色,或混合(一个词用主墨色,版本/版次用品牌红)
+- 块填充或满版出血背景覆盖卡片高度 ≥ 30%
+- 允许加一道斜条纹 / 角块作为次级强调
 
-**Anchor (c) — Schematic peek**
+**锚点 (c) —— 示意图露脸**
 
-A minimal architecture / data-flow diagram, hand-drawn-feeling. Use when the mechanism IS the hook (hooks C and D), and the post does not have a single dominant number.
+一张极简的架构图 / 数据流图,带手绘感。当贴文的钩子就是机制本身(钩子 C 和 D)、且没有单一主导数字时使用。
 
-- Min size: 100×80px (occupies right or center band of card)
-- ≥ 3 labeled elements (boxes, arrows, or layered shapes)
-- Stroke 1px brand red, captions in serif italic, dashed connectors
-- Hero text shrinks to 30-36px to make room for the schematic
+- 最小尺寸:100×80px(占据卡片右侧或中央条带)
+- ≥ 3 个带标签的元素(盒子、箭头或层叠形状)
+- 描边 1px 品牌红,说明用衬线斜体,连接线为虚线
+- 主视觉文字缩小到 30-36px,为示意图腾出空间
 
-### Mandatory supporting elements (every cover)
+### 必选辅助元素(每张封面都要)
 
-- **Kicker line** + 32×1.5px brand-red rule below it (top-left)
-- **Read-time stamp** at the bottom (`读完约 X 分钟`, computed from total content word count ÷ 300 + 0.3 min/card; for cover-only renders or drafts, use a placeholder estimate based on planned card count and refine after content cards exist)
+- **引子行** + 其下方 32×1.5px 的品牌红分隔线(左上角)
+- **阅读时间戳**置于底部(`读完约 X 分钟`,按内容总字数 ÷ 300 + 0.3 分钟/张卡片估算;对于仅渲染封面或草稿场景,先按计划卡片数给一个占位估值,等内容卡片做出来后再修订)
 
-### Optional supporting elements (pick 1–2, no more)
+### 可选辅助元素(选 1–2 个,不要更多)
 
-- **Outlined volume number** (top-right) — font-size 70-78px, text-stroke 1px, opacity 0.4 on light bg, opacity 0.25 on dark bg. **Optional**, not the anchor.
-- **Diagonal stripe** (corner) — brand red, 6-8px wide, 30°-45° angle, runs from one edge into the cover. Replaces the v0 3-bar stack.
-- **Author signature pill** — bottom-left, only on cover. `谭磊 · 类目` in tertiary text, with brand-red dot prefix.
-- **Edition/series mark** — like `Vol.01` or `note 02 / 04`, in serif italic, tertiary text.
+- **描边卷号**(右上角)—— font-size 70-78px,text-stroke 1px,浅色背景下 opacity 0.4,深色背景下 opacity 0.25。**可选**,不能当作锚点。
+- **斜条纹**(角部)—— 品牌红,6-8px 宽,30°-45° 倾角,从一条边切入封面。替代 v0 的 3 条横杠堆叠。
+- **作者签名 pill** —— 左下角,仅封面使用。`谭磊 · 类目` 用三级文字色,前缀加品牌红圆点。
+- **版次 / 系列标记** —— 比如 `Vol.01` 或 `note 02 / 04`,衬线斜体,三级文字色。
 
-### Banned on cover
+### 封面禁用项
 
-- The v0 3-bar descending stack as a primary visual — alone it does not anchor
-- Centered, text-only, no anchor — the "Notion screenshot" failure mode
-- Hero text smaller than 60px with no other anchor element
-- Volume number used as the anchor (it's decoration)
-- Multi-color hero (one accent only — brand red OR cream-on-dark, never both)
+- 把 v0 的 3 条横杠下降堆叠当作主视觉 —— 单独使用并不能锚定画面
+- 居中、纯文字、无锚点 —— "Notion 截图" 失败模式
+- 主视觉文字小于 60px 且没有其他锚点元素
+- 把卷号当锚点(它是装饰)
+- 多色主视觉(只允许一种强调色 —— 品牌红或深底米字,不要两者并存)
 
-**No author signature on content cards.** Xiaohongshu app already shows the author handle next to the post; printing it on every card is redundant. Cover may have it as the optional pill (above).
+**内容卡片不放作者签名。**小红书 app 已经在贴文旁边显示作者 ID;每张卡片都打一遍是冗余。封面可以用上面那个可选 pill 显示。
 
-## Content card decorations
+## 内容卡片装饰
 
-Content cards drop:
-- Decoration 4 (3-bar stack) — cover-only flair
-- Decoration 5 (read-time) — replaced by trade-off line
+内容卡片去掉:
+- 装饰 4(3 条横杠堆叠)—— 仅封面专用花活
+- 装饰 5(阅读时间)—— 由权衡行替代
 
-Content cards add the v1 hand-drawn / playful element vocabulary (use 3–5 per card):
+内容卡片增加 v1 的手绘 / 俏皮元素词汇表(每张卡片用 3–5 个):
 
-### Element vocabulary (use sparingly, max 5 per card)
+### 元素词汇表(克制使用,每张卡片最多 5 个)
 
-| Element | When to use | Implementation |
+| 元素 | 何时使用 | 实现 |
 |---|---|---|
-| **Squiggle underline** | Under one key phrase in title (usually the accent-colored token) | `<svg viewBox="0 0 65 8"><path d="M 1 5 Q 10 1 20 5 T 40 5 T 64 5" stroke="#B23A26" stroke-width="1.6" fill="none"/></svg>`, absolute-positioned beneath text |
-| **Amber star** | Next to a section label or as a sticker on a callout | Pentagon-star SVG path filled `#D4A017`, 9–14px |
-| **Hand-drawn ellipse** | Loop around a key word in title | `<svg viewBox="0 0 42 22"><path d="M 5 11 Q 2 4 21 3 Q 39 4 38 11 Q 37 19 21 19 Q 4 19 5 11 Z" stroke="#D4A017" stroke-width="1.4" fill="none"/></svg>`, absolute behind text with `z-index: -1` |
-| **Hand-drawn × bullet** | Bullet marker for negative-toned lists ("hidden costs", "踩坑", "不适用") | `<svg viewBox="0 0 9 9"><path d="M 1 1 L 8 8 M 8 1 L 1 8" stroke="#B23A26" stroke-width="1.4"/></svg>`, 9px |
-| **Hand-drawn loop highlight** | Around a key element in schematic (the "vector store" callout) | Imperfect closed Bézier path, `stroke="#D4A017"`, 1.2px |
-| **Sticker tilt** | Apply to one element only — usually a tinted callout box | `transform: rotate(-0.6deg)` to `rotate(-0.7deg)` |
-| **Dashed border** | Module boxes (architecture cards) | `border: 0.8px dashed #B23A26` |
+| **波浪下划线** | 在标题中某个关键短语下方(通常是强调色术语) | `<svg viewBox="0 0 65 8"><path d="M 1 5 Q 10 1 20 5 T 40 5 T 64 5" stroke="#B23A26" stroke-width="1.6" fill="none"/></svg>`,绝对定位在文字下方 |
+| **琥珀色星星** | 章节标签旁,或作为浮窗上的贴纸 | 五边形星形 SVG path,填充 `#D4A017`,9–14px |
+| **手绘椭圆** | 圈住标题中某个关键词 | `<svg viewBox="0 0 42 22"><path d="M 5 11 Q 2 4 21 3 Q 39 4 38 11 Q 37 19 21 19 Q 4 19 5 11 Z" stroke="#D4A017" stroke-width="1.4" fill="none"/></svg>`,绝对定位在文字后方,`z-index: -1` |
+| **手绘 × 号 bullet** | 负面调性列表的项目符号("hidden costs"、"踩坑"、"不适用") | `<svg viewBox="0 0 9 9"><path d="M 1 1 L 8 8 M 8 1 L 1 8" stroke="#B23A26" stroke-width="1.4"/></svg>`,9px |
+| **手绘环线高亮** | 圈住示意图中的关键元素("vector store" 标注) | 不规则的闭合贝塞尔曲线,`stroke="#D4A017"`,1.2px |
+| **贴纸倾斜** | 仅对一个元素使用 —— 通常是带底色的浮窗框 | `transform: rotate(-0.6deg)` 到 `rotate(-0.7deg)` |
+| **虚线边框** | 模块盒(架构卡片) | `border: 0.8px dashed #B23A26` |
 
-Don't combine all 7 in one card. Pick **3–5** that fit the content shape:
-- Concept card with bullets: squiggle + star + ×-bullets + tilted box (4)
-- Architecture card: ellipse around key word + dashed module borders + sticker callout (3 elements; modules count as one repeated element)
-- Compare card: ×-bullets on left + squiggle on right header (2 elements; restraint is right here, the comparison itself is the visual)
+不要把 7 种全堆在一张卡上。挑 **3–5** 个契合内容形态的:
+- 概念卡 + bullet 列表:波浪下划线 + 星星 + ×号 bullet + 倾斜浮窗框(4 个)
+- 架构卡:关键词上的手绘椭圆 + 虚线模块边框 + 贴纸浮窗(3 个元素;模块算作一种重复元素)
+- 对比卡:左侧 ×号 bullet + 右侧表头波浪下划线(2 个元素;克制用在这里恰到好处,对比本身就是视觉)
 
-## Section label conventions
+## 章节标签约定
 
-Section labels appear inside cards to chunk content. Two styles, pick by tone:
+章节标签出现在卡片内部,用于切分内容。两种风格,按调性挑选:
 
-- **`→ XXX`** — neutral/structural sections ("→ 现状", "→ 4 个隐藏成本", "→ 关键", "→ 数据流")
-- **`~ XXX`** — softer/casual sections ("~ 现状", "~ 顺手记一下"), use for sticky-note style boxes
+- **`→ XXX`** —— 中性 / 结构性章节("→ 现状"、"→ 4 个隐藏成本"、"→ 关键"、"→ 数据流")
+- **`~ XXX`** —— 较柔和 / 随意的章节("~ 现状"、"~ 顺手记一下"),用于便利贴风格的盒子
 
-Both are serif italic 10px, letter-spacing 0.05em, color either `#B23A26` (red) or `#8C7E68` (gray) depending on emphasis.
+两者都是衬线斜体 10px,letter-spacing 0.05em,颜色根据强调程度选 `#B23A26`(红)或 `#8C7E68`(灰)。
 
-When a section label is paired with a star pictogram (`<svg>` 9px amber), put the star to the left of the label text.
+当章节标签搭配星形图标(`<svg>` 9px 琥珀色)时,把星星放在标签文字的左侧。
 
-## The "data-flow note" (for architecture cards)
+## "数据流注解"(用于架构卡片)
 
-A new structural element introduced in v1: a one-line italic-serif annotation **below** module boxes, prefixed with a red `~ 数据流` label, summarizing how the modules cooperate at runtime.
+v1 引入的新结构性元素:在模块盒**下方**的一行衬线斜体注解,前缀为红色 `~ 数据流` 标签,概括这些模块在运行时如何协作。
 
 ```html
 <div style="margin-top: 8px; font-family: var(--font-serif); font-style: italic;
             font-size: 10px; color: #8C7E68; line-height: 1.5;">
   <span style="color: #B23A26; letter-spacing: 0.05em;">~ 数据流</span>
   &nbsp;
-  {one-line description of how modules feed each other at runtime}
+  {一行话描述模块运行时如何相互喂数据}
 </div>
 ```
 
-This converts a static structural diagram into a dynamic mental model — readers see not just "what the parts are" but "how they actually work together". Required on architecture cards, optional on concept cards if the concept involves multiple cooperating subparts.
+这把一张静态结构图转化为动态心智模型 —— 读者看到的不仅是"零件是什么",还有"它们实际上怎么协同工作"。架构卡片必备;若概念涉及多个协作子部分,概念卡片可选。
 
-## The "关键" callout (sticker style)
+## "关键" 浮窗(贴纸样式)
 
-When a card needs to land a single takeaway line at the end of body content, use a tilted amber sticker:
+当一张卡片需要在正文末尾落定一句要点时,用倾斜的琥珀色贴纸:
 
 ```html
 <div style="padding: 7px 11px 7px 12px; background: rgba(212,160,23,0.13);
@@ -208,27 +208,27 @@ When a card needs to land a single takeaway line at the end of body content, use
                font-size: 10px; color: #8B6809; letter-spacing: 0.05em;
                font-weight: 700;">关键</span>
   <span style="font-size: 11px; color: #1F1B16; font-weight: 500;
-               margin-left: 6px;">{takeaway, 8-16 chars}</span>
+               margin-left: 6px;">{要点,8-16 字}</span>
 </div>
 ```
 
-Use sparingly: at most one "关键" sticker per card. Recommended on architecture cards, summary cards.
+克制使用:每张卡片最多一个 "关键" 贴纸。建议用于架构卡片和总结卡片。
 
-## Schematic SVG visual language
+## 示意图 SVG 视觉语言
 
-When a card embeds a schematic (concept-card mini-diagram, etc.):
+当卡片嵌入示意图(概念卡片的迷你图等):
 
-- viewBox typically `0 0 280 X`
-- Stroke widths: 0.5–0.8px for shapes, 0.6–0.8px for arrows. Hairline.
-- **Connectors use dashed lines** (`stroke-dasharray="2 2"`) for "data flow" or "ingestion" semantics — feels more notebook than blueprint.
-- Boxes: `fill="none"` (outline) OR `fill="#FAF5E8"` (cream tint)
-- Arrows: brand-red 0.8px stroke + 6px polygon arrowhead. Never unicode `→` inside SVG.
-- Labels: serif italic, 9–11px, `fill="#5A5246"` for captions or `#1F1B16` for in-box labels
-- Add ONE hand-drawn loop highlight (amber, imperfect Bézier path) to draw attention to the key element
+- viewBox 通常 `0 0 280 X`
+- 描边宽度:形状 0.5–0.8px,箭头 0.6–0.8px。发丝细。
+- **连接线用虚线**(`stroke-dasharray="2 2"`)表达"数据流"或"摄入"语义 —— 比蓝图更像笔记本。
+- 盒子:`fill="none"`(空心)或 `fill="#FAF5E8"`(米色填充)
+- 箭头:品牌红 0.8px 描边 + 6px 多边形箭头。绝不在 SVG 内部使用 unicode `→`。
+- 标签:衬线斜体,9–11px,说明用 `fill="#5A5246"`,盒内标签用 `#1F1B16`
+- 加上**一个**手绘环线高亮(琥珀色,不规则贝塞尔路径)指引视线到关键元素
 
-## Trade-off line (the credibility multiplier, kept from v0)
+## 权衡行(可信度乘数,沿用 v0)
 
-Same as v0:
+与 v0 相同:
 
 ```html
 <div style="margin-top: auto; display: flex; align-items: center; gap: 6px; padding-top: 8px;">
@@ -241,36 +241,36 @@ Same as v0:
   </svg>
   <span style="font-size: 11px; color: #5A5246;
                font-family: var(--font-serif); font-style: italic;">
-    代价 · {trade-off text in 8-16 chars}
+    代价 · {权衡文字,8-16 字}
   </span>
 </div>
 ```
 
-In v1 layout, this is the **last visible element on the card** (footer was removed). Use `margin-top: auto;` to push it to the bottom.
+在 v1 布局中,这是**卡片上最后一个可见元素**(页脚已被移除)。用 `margin-top: auto;` 把它推到底部。
 
-If a card has no real trade-off, omit. Forced trade-offs read as fake humility.
+如果一张卡片没有真实的权衡,就省略。强行硬编的权衡会读起来像假谦虚。
 
-## Icon usage (lucide library)
+## 图标用法(lucide 库)
 
-Same as v0 — lucide outline icons in brand-red, stroke 1.6px, sizes 12/14/15/16px. Hand-drawn icons reserved for brand-specific symbols (caveat triangle, amber star sticker) and schematic primitives.
+与 v0 相同 —— lucide outline 图标,品牌红,描边 1.6px,尺寸 12/14/15/16px。手绘图标保留给品牌专用符号(警示三角、琥珀色星星贴纸)和示意图基础图元。
 
-## Density target
+## 信息密度目标
 
-A v1 content card body must contain **220–300 Chinese-character-equivalent words** of substantive content, excluding kicker, page number, title, gist, and trade-off line. Below 220 reads as filler. Above 300 crowds the card at 3:4 aspect.
+v1 内容卡片的正文必须包含 **220–300 中文字符等价词**的实质内容,不计入引子、页码、标题、gist 和权衡行。低于 220 读起来像凑数。高于 300 在 3:4 比例下会塞得过满。
 
-Density is not just word count — it is **specificity**. Every card must contain ≥ 6 specific data points (numbers, named tools, concrete scenarios, before/after comparisons). A 280-character card with 0 specifics fails; a 240-character card with 8 specifics passes. See SKILL.md "Density floor" for the formal checklist.
+密度不仅是字数 —— 而是**具体性**。每张卡片必须包含 ≥ 6 个具体数据点(数字、具名工具、具体场景、前后对比)。一张 280 字但 0 个具体点的卡片不及格;一张 240 字但有 8 个具体点的卡片合格。详见 SKILL.md 的"密度底线"正式清单。
 
-Concrete content elements per card type:
-- **Concept card**: title + gist + intro tinted box (2-3 lines) + schematic + N-item bulleted list (4-6 items, each with **2 specifics in parens**) + trade-off
-- **Architecture card**: title + gist + (optional) intro line + 3-6 module boxes (each with **structured 2-field detail**) + data-flow note + (optional) key callout + trade-off. If modules use the dense 2-field pattern, intro line and key callout become optional — the modules carry the substance.
-- **Compare card**: title + gist + 2 columns (4-5 items each, each with **≥ 1 specific**) + trade-off
-- **Pitfall card**: title + gist + 看起来/实际 (or 以为/结果) panels — 实际 panel must have **≥ 3 specifics** + trade-off
-- **Summary card**: title + gist + 适用/不适用 lists (each item with reason in parens) + trade-off
-- **Code card**: title + gist + code block + 2-3 annotation bullets with **specifics** + trade-off
+各卡片类型的具体内容元素:
+- **概念卡**:标题 + gist + 浅底色 intro 框(2-3 行)+ 示意图 + N 项 bullet 列表(4-6 项,每项**括号内带 2 个具体点**)+ 权衡
+- **架构卡**:标题 + gist +(可选)intro 行 + 3-6 个模块盒(每个**结构化的 2 字段细节**)+ 数据流注解 +(可选)关键浮窗 + 权衡。如果模块用了密集的 2 字段模式,intro 行和关键浮窗就变成可选 —— 模块本身已经承载了实质内容。
+- **对比卡**:标题 + gist + 2 列(每列 4-5 项,每项**至少 1 个具体点**)+ 权衡
+- **踩坑卡**:标题 + gist + 看起来/实际(或 以为/结果)对照面板 —— 实际面板必须**至少 3 个具体点** + 权衡
+- **总结卡**:标题 + gist + 适用/不适用 列表(每项括号内带原因)+ 权衡
+- **代码卡**:标题 + gist + 代码块 + 2-3 个**带具体点的**注解 bullet + 权衡
 
-## Spacing rhythm
+## 间距节奏
 
-Vertical rhythm uses these values, in order of preference:
-- 4px, 6px, 8px, 10px, 12px, 14px, 16px, 18px, 22px
+垂直节奏使用以下数值,按优先级排序:
+- 4px、6px、8px、10px、12px、14px、16px、18px、22px
 
-Avoid odd values (e.g., 11px, 19px). Avoid arbitrary px (e.g., 17px).
+避免奇数值(如 11px、19px)。避免任意像素值(如 17px)。

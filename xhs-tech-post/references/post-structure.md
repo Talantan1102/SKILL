@@ -1,149 +1,149 @@
-# Post Structure
+# 帖子结构
 
-How to compose 7–9 cards into a coherent post that reads in sequence. Order matters more than individual card quality — a great cover followed by 6 redundant cards is worse than a decent cover followed by 6 well-paced ones.
+如何把 7–9 张卡片组合成一篇按顺序读得通的连贯帖子。顺序比单卡质量更重要——一张好封面后面跟着 6 张冗余卡,比一张及格的封面后面跟着 6 张节奏到位的卡更糟。
 
-## The default sequence
+## 默认序列
 
-For a 实战复盘 / 技术深度解读 post (the format this skill specializes in), use this sequence:
+对于一篇 实战复盘 / 技术深度解读 帖子(这套 skill 的专长格式),用这个序列:
 
-| Page | Type | Purpose |
+| 页码 | 类型 | 用途 |
 |---|---|---|
-| 01 | Cover | Hook |
-| 02 | Concept card | Frame the thing being discussed (so non-experts can follow) |
-| 03 | Compare card OR Setup card | Establish the "before" — what was the situation, why did it need work |
-| 04 | Architecture / Flow card | Show the structural change |
-| 05 | Concept card OR Code card | Drill into the key mechanism |
-| 06 | Pitfall card | The honest "I assumed X but..." moment |
-| 07 | Compare card OR Result card | The numbers or the after-state |
-| 08 | Summary card | 3–5 takeaways |
+| 01 | 封面 | Hook |
+| 02 | 概念卡 | 框定要讨论的对象(让非专家也跟得上) |
+| 03 | 对比卡 或 起点卡 | 建立"之前"——当时的状况是什么、为什么需要做 |
+| 04 | 架构 / 流程卡 | 展示结构性变化 |
+| 05 | 概念卡 或 代码卡 | 钻进关键机制 |
+| 06 | 踩坑卡 | 诚实的"我以为 X,结果……"时刻 |
+| 07 | 对比卡 或 结果卡 | 数字或最终状态 |
+| 08 | 总结卡 | 3–5 条 takeaway |
 
-This is 8 cards. Add a 09 if you have a second mechanism worth its own card. Drop 05 or 03 if your post is shorter / tighter.
+这是 8 张卡。如果你有第二个值得单卡的机制,加一张 09。如果帖子更短/更紧,砍掉 05 或 03。
 
-## Variation: pure-optimization post (e.g., a kernel speedup)
+## 变体:纯优化型帖子(例如一个 kernel 提速)
 
-| Page | Type | Why |
+| 页码 | 类型 | 原因 |
 |---|---|---|
-| 01 | Cover (Hook A) | Numeric hook |
-| 02 | Concept | Frame the workload + what's being optimized |
-| 03 | Architecture | Show the original vs. new structure |
-| 04 | Code card | The key implementation detail |
-| 05 | Pitfall card | A subtle gotcha hit during implementation |
-| 06 | Compare card | Before-after benchmarks |
-| 07 | Summary | When to apply / not apply |
+| 01 | 封面 (Hook A) | 数字 hook |
+| 02 | 概念 | 框定负载 + 在优化什么 |
+| 03 | 架构 | 展示原结构 vs. 新结构 |
+| 04 | 代码卡 | 关键的实现细节 |
+| 05 | 踩坑卡 | 实现过程中遇到的一个微妙坑 |
+| 06 | 对比卡 | 前后基准对比 |
+| 07 | 总结 | 何时适用 / 不适用 |
 
-7 cards. Skips the second concept/pitfall slot.
+7 张卡。砍掉了第二个概念/踩坑位置。
 
-## Variation: pure war-story (debugging journey)
+## 变体:纯战斗故事(debug 经历)
 
-| Page | Type | Why |
+| 页码 | 类型 | 原因 |
 |---|---|---|
-| 01 | Cover (Hook D — 我以为) | Cognitive-update hook |
-| 02 | Concept | Frame what's being debugged |
-| 03 | Pitfall #1 | First wrong assumption |
-| 04 | Pitfall #2 | Second wrong assumption |
-| 05 | Pitfall #3 | Third (often the real root cause) |
-| 06 | Concept / Code | The actual fix |
-| 07 | Summary | "Things I should have checked first" |
+| 01 | 封面 (Hook D — 我以为) | 认知更新 hook |
+| 02 | 概念 | 框定要 debug 的东西 |
+| 03 | 踩坑 #1 | 第一个错误假设 |
+| 04 | 踩坑 #2 | 第二个错误假设 |
+| 05 | 踩坑 #3 | 第三个(往往是真正的根因) |
+| 06 | 概念 / 代码 | 真正的修法 |
+| 07 | 总结 | "我本应先检查的事项" |
 
-7 cards. The pitfall cards are the soul of this format — concentrating them gives the post a clear emotional arc (denial → bargaining → acceptance, in a sense).
+7 张卡。踩坑卡是这种格式的灵魂——把它们集中起来能让帖子有一条清晰的情绪曲线(某种意义上的:否认 → 讨价还价 → 接受)。
 
-## Variation: framework / mechanism explainer
+## 变体:框架 / 机制讲解型
 
-| Page | Type | Why |
+| 页码 | 类型 | 原因 |
 |---|---|---|
-| 01 | Cover (Hook C — 技术名词) | Curiosity hook |
-| 02 | Concept | What problem this mechanism solves |
-| 03 | Architecture | High-level structure |
-| 04 | Flow card | How a request / call flows through |
-| 05 | Concept | Drill into the key trick |
-| 06 | Compare card | This vs. alternative approaches |
-| 07 | Summary | When to use this |
+| 01 | 封面 (Hook C — 技术名词) | 好奇心 hook |
+| 02 | 概念 | 这种机制解决了什么问题 |
+| 03 | 架构 | 高层结构 |
+| 04 | 流程卡 | 一次请求 / 调用是怎么穿过去的 |
+| 05 | 概念 | 钻进关键的小机巧 |
+| 06 | 对比卡 | 这种方案 vs. 替代方案 |
+| 07 | 总结 | 何时使用 |
 
-7 cards. No pitfall — explainers don't need a war-story arc.
+7 张卡。没有踩坑——讲解型不需要战斗故事的曲线。
 
-## Sequencing rules
+## 排序规则
 
-These rules apply across all variations:
+下面这些规则适用于所有变体:
 
-### 1. Cover hook implies first content card type
+### 1. 封面 hook 暗示首张内容卡的类型
 
-The hook chosen on the cover constrains card 02:
+封面上选定的 hook 会约束第 02 张卡:
 
-- Cover hook A (数字反差) → Card 02 should be a **concept card** that frames *what was being measured* (so the headline number lands)
-- Cover hook B (过程式) → Card 02 should be a **concept card** that frames *what was being restructured*
-- Cover hook C (技术名词) → Card 02 should be a **concept card** that defines the noun
-- Cover hook D (我以为) → Card 02 should frame *what was being attempted* — could be a setup-style concept card
+- 封面 hook A (数字反差) → 第 02 张应该是一张**概念卡**,框定*被测量的是什么*(让标题数字落地)
+- 封面 hook B (过程式) → 第 02 张应该是一张**概念卡**,框定*被重构的是什么*
+- 封面 hook C (技术名词) → 第 02 张应该是一张**概念卡**,定义那个名词
+- 封面 hook D (我以为) → 第 02 张应该框定*在尝试什么*——可以是起点式的概念卡
 
-### 2. Information progresses from general → specific → again-general
+### 2. 信息从 一般 → 具体 → 再回到一般
 
-The post should narrow from broad framing (cards 02–04) into specific mechanism / pitfalls (cards 05–07) and broaden back to takeaways (08–09). Avoid the inverted shape (specific → broad → specific) — readers find it disorienting.
+帖子应该从宽泛的框定(02–04 卡)收窄到具体的机制 / 踩坑(05–07 卡),再扩散回 takeaway(08–09)。避免反过来的形态(具体 → 宽泛 → 具体)——读者会觉得迷失。
 
-### 3. Each card should answer a question the previous card raised
+### 3. 每张卡都应回答上一张提出的问题
 
-Read your draft sequence in order and silently ask "OK, but what about Z?" after each card. The next card should answer that. If it doesn't, your sequence is wrong.
+按顺序读你的草稿序列,在每张卡之后默默问"OK,那 Z 怎么办?"。下一张卡应该回答它。如果不回答,你的序列就错了。
 
-### 4. The summary card is non-negotiable
+### 4. 总结卡不可让步
 
-Even if every other card is great, missing a summary card costs you ~30% of saves/screenshots. The summary is what readers come back to.
+哪怕其它每张卡都很棒,缺了总结卡会让你损失大概 30% 的收藏/截图。总结是读者会回头来看的东西。
 
-### 5. Pitfall cards are sticky
+### 5. 踩坑卡有黏性
 
-Posts with at least one pitfall card outperform posts without — even on optimization topics that "shouldn't" need them. Always look for an honest pitfall to include.
+带至少一张踩坑卡的帖子表现优于没有的——即便是那种"理论上不需要"踩坑的优化型选题。永远去找一个诚实的踩坑放进来。
 
-## Post-level coherence checks
+## 帖子级别的连贯性检查
 
-Before finalizing, verify:
+定稿前,核对:
 
-- **One narrative arc**: can you write the post in one sentence? "I refactored 43 tools into 7 skills, and here's the trick that made it actually work." If the one-sentence form has multiple "and"s, the post has multiple stories — split it or cut content.
-- **Consistent kicker**: every card has the same kicker text (e.g., `agent harness · note 02`), only the page number changes.
-- **No card is skippable**: if removing a card doesn't damage the narrative, remove it. Better 7 strong cards than 9 with filler.
-- **Cover and summary echo**: the summary's first takeaway should restate the cover's promise. Closing the loop signals "this post delivered what it promised."
+- **一条叙事曲线**:能用一句话把帖子讲清楚吗?"我把 43 个工具重构成了 7 个 skill,这里是让它真正跑起来的那个机巧。"如果一句话版本里有多个"和",那这篇帖子有多个故事——拆开或砍内容。
+- **kicker 一致**:每张卡用相同的 kicker 文本(例如 `agent harness · note 02`),只有页码变化。
+- **没有可跳过的卡**:如果删掉一张卡不会损害叙事,就删掉。7 张强卡好过 9 张带凑数的。
+- **封面与总结呼应**:总结的第一条 takeaway 应该重述封面给的承诺。闭环传递的信号是"这篇帖子兑现了它承诺的内容"。
 
-## Word count and read time targets
+## 字数与阅读时长目标
 
-- Cover: ~30 words total (kicker + hero + subtitle + footer)
-- Concept card: ~80–120 words (title + gist + body + stats labels)
-- Architecture card: ~60–90 words (denser visual; less prose)
-- Flow card: ~70–100 words
-- Compare card: ~50–80 words (visual-heavy)
-- Code card: ~30–60 words of prose + the snippet itself
-- Pitfall card: ~80–120 words (this is where stories happen)
-- Summary card: ~60–90 words (5 short takeaways)
+- 封面:总共 ~30 字 (kicker + hero + 副标题 + 页脚)
+- 概念卡:~80–120 字 (标题 + 主旨 + 正文 + 数据标签)
+- 架构卡:~60–90 字 (视觉密度更高;文字更少)
+- 流程卡:~70–100 字
+- 对比卡:~50–80 字 (重视觉)
+- 代码卡:~30–60 字的散文 + snippet 本身
+- 踩坑卡:~80–120 字 (这是故事发生的地方)
+- 总结卡:~60–90 字 (5 条短 takeaway)
 
-Total post word count: roughly 500–800 words. At 300 chars/min reading + 0.33 min/card image-look, this works out to 4–7 minutes — which matches the read-time stamp on the cover.
+帖子总字数:大致 500–800 字。按 300 字/分钟阅读 + 0.33 分钟/卡看图,折算下来是 4–7 分钟——和封面上的阅读时长戳对得上。
 
-## Post body (正文 below the images)
+## 帖子正文(图片下方的正文)
 
-The post body sits below all the cards in Xiaohongshu's compose box. It is **not** another card — it's plain text. Length 80–150 characters.
+帖子正文位于小红书发布框中所有卡片的下方。它**不是**另一张卡——它是纯文本。长度 80–150 字。
 
-### Body template
+### 正文模板
 
 ```
-{One-sentence restatement of the core insight in plain words}.
-{One sentence of context the cards couldn't fit — e.g., "这套方案在 30B MoE 上跑得稳，70B dense 还在验证"}.
-{Optional invitation: "卡 N 那块的实现还在迭代，做过类似的同行欢迎评论区交流"}
+{用大白话把核心洞见用一句话重述}。
+{一句卡片塞不下的背景——例如,"这套方案在 30B MoE 上跑得稳,70B dense 还在验证"}。
+{可选的邀请:"卡 N 那块的实现还在迭代,做过类似的同行欢迎评论区交流"}
 
-{3-5 hashtags, ordered specific → broad}
+{3-5 个 hashtag,从具体 → 宽泛排序}
 ```
 
-### Body anti-patterns
+### 正文反模式
 
-- Don't restate every card. The cards are right above the text. Repetition is annoying.
-- Don't end with "求三连 / 关注我" — readers know how to follow if they want to.
-- Don't add "图源自制" or "首发小红书" type meta-disclaimers — they read as defensive.
-- Don't use emoji in the body. The visual-language consistency matters even in the text block.
+- 不要重述每张卡。卡片就在文字正上方。重复让人烦。
+- 不要以 "求三连 / 关注我" 结尾——读者想关注就会关注。
+- 不要加 "图源自制" 或 "首发小红书" 这类元声明——读起来像在防御。
+- 正文里不要用 emoji。视觉语言的一致性即便在文字块里也重要。
 
-## Hashtag selection
+## Hashtag 选择
 
-Pick 3–5 hashtags. Order from specific to broad:
+挑 3–5 个 hashtag。从具体到宽泛排序:
 
 ```
-{Specific tool/concept tag} {Specific area tag} {Mid-level tag} {Broad role tag} [{Broad role tag 2}]
+{具体工具/概念标签} {具体领域标签} {中层标签} {宽泛角色标签} [{宽泛角色标签 2}]
 ```
 
-Examples:
+示例:
 - `#SGLang #ContextParallel #LLM推理 #大模型 #AI工程师`
 - `#GRPO #RLHF #对齐训练 #大模型 #算法工程师`
 - `#LangGraph #MultiAgent #Agent工程 #AI工程师`
 
-Don't pad with unrelated trending tags like `#职场 #成长` unless the post is genuinely about those topics. The Xiaohongshu algorithm rewards relevance over reach, especially for technical content.
+不要用 `#职场 #成长` 这种不相关的热门标签来凑数,除非帖子真的是在讲这些主题。小红书的算法对相关性的奖励大于对覆盖面的奖励,尤其是技术类内容。
