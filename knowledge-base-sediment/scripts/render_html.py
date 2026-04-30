@@ -1,8 +1,8 @@
 #!/usr/bin/env python3
-"""Render kb/<tag>/*.md (or all) into a single static HTML page.
+"""把 kb/<tag>/*.md(或 all / library)渲染成单个静态 HTML 页面。
 
-Usage:
-    python render_html.py --kb <path> --tag <tag>|all --template <path-to-base.html>
+用法:
+    python render_html.py --kb <path> --tag <tag>|all|library --template <path-to-base.html>
 """
 from __future__ import annotations
 

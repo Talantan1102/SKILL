@@ -1,4 +1,4 @@
-"""Shared pytest fixtures for KB-sediment scripts."""
+"""KB-sediment 脚本测试用的共享 pytest fixture。"""
 import pathlib
 import textwrap
 import pytest

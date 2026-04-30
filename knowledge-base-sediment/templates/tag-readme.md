@@ -1,6 +1,6 @@
 # {{TAG_TITLE}} 导览
 
-> **Reader-level: {{LEVEL}}**。{{LEVEL_HINT}}
+> **阅读深度:{{LEVEL}}**。{{LEVEL_HINT}}
 
 ## 1. 这个领域 / 模块解决什么(2 分钟版)
 

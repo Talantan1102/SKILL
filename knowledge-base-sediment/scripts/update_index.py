@@ -1,11 +1,11 @@
 #!/usr/bin/env python3
-"""Walk kb/**/*.md, parse frontmatter, rewrite INDEX*.md, validate links.
+"""遍历 kb/**/*.md,解析 frontmatter,重写 INDEX*.md,校验 links。
 
-Usage:
+用法:
     python update_index.py --kb <path-to-kb>
 
-Exit code 0 on success even if some cards have bad YAML (those are skipped
-and warned about); non-zero only on unrecoverable I/O errors.
+退出码 0 表示成功 —— 即使某些卡 YAML 坏了也只是跳过 + 警告;只有不可恢复的
+I/O 错误才返回非零。
 """
 from __future__ import annotations
 

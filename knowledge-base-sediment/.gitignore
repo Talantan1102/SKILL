@@ -8,9 +8,9 @@ __pycache__/
 .venv/
 venv/
 
-# editor
+# 编辑器
 .idea/
 .vscode/
 
-# project-specific one-offs
+# 项目内一次性脚本
 scripts/_gen_*.py

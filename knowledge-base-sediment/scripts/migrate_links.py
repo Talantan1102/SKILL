@@ -1,10 +1,9 @@
 #!/usr/bin/env python3
-"""Migrate `links` frontmatter from list-of-str to list-of-dict {id, rel}.
+"""把 frontmatter 的 `links` 从 list-of-str 迁移到 list-of-dict {id, rel}。
 
-In-place rewrite. Idempotent. Only modifies the `links:` block; other
-frontmatter and body bytes are preserved verbatim.
+原地改写。幂等。只动 `links:` 块,其他 frontmatter 和 body 字节级保持原样。
 
-Usage:
+用法:
     python migrate_links.py --kb <path-to-kb>
 """
 from __future__ import annotations

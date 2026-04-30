@@ -1,7 +1,7 @@
 #!/usr/bin/env python3
-"""Search KB cards by keyword, ranked title > tag > body. Output JSON.
+"""按关键词搜索 KB 卡片,排序按 title > tag > body。输出 JSON。
 
-Usage:
+用法:
     python find_card.py --kb <path> --query <q> [--tag <t>]
 """
 from __future__ import annotations

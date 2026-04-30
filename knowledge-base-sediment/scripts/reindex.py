@@ -1,5 +1,5 @@
 #!/usr/bin/env python3
-"""Force-rebuild all KB indexes from scratch (delegates to update_index.py)."""
+"""强制从零重建所有 KB 索引(委托给 update_index.py)。"""
 from __future__ import annotations
 
 import argparse

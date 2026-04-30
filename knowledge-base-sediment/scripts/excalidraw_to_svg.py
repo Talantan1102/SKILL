@@ -1,11 +1,10 @@
 #!/usr/bin/env python3
-"""Convert an .excalidraw JSON file to a clean SVG.
+"""把 .excalidraw JSON 文件转成干净的 SVG。
 
-Drops the rough.js hand-drawn feel (would need a rough.js renderer),
-keeps geometry / colors / labels. Output is a self-contained <svg> that
-can be inlined in HTML or saved to disk.
+不模拟 rough.js 手绘感(那需要 rough.js renderer);保留几何 / 颜色 / 标签。
+产出是自包含的 <svg>,可以 inline 进 HTML 也可以单独存盘。
 
-Usage:
+用法:
     python excalidraw_to_svg.py <input.excalidraw> [<output.svg>]
 """
 from __future__ import annotations
